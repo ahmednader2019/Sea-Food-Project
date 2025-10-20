@@ -1,0 +1,102 @@
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import { Link } from 'wouter';
+
+export default function About() {
+  return (
+    <>
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="about-hero-section">
+        <div className="about-hero-content hero-animate">
+          <h1 className="about-hero-title animate-fadeInUp">
+            We Are A Saudi-Based Seafood Company Dedicated To Delivering Fresh Frozen, Sustainable, 
+            <span className="text-highlight"> And High-Quality Fish And Marine Products</span> To The Local Market And Beyond.
+          </h1>
+        </div>
+      </section>
+
+      {/* Vision, Mission, Values Section */}
+      <section className="vmv-section">
+        <div className="container-fluid px-5">
+          <div className="vmv-layout position-relative">
+            {/* Background Images */}
+            <img src="/assets/29-124.webp" alt="Fish" className="vmv-bg-image fish-bg" />
+            <img src="/assets/29-122.webp" alt="Lemon" className="vmv-bg-image lemon-bg" />
+            <img src="/assets/29-143.webp" alt="Lobster" className="vmv-bg-image lobster-bg" />
+            
+            {/* Our Vision - Top Left */}
+            <div className="vmv-card vision-card">
+              <div className="vmv-icon-circle">
+                <img src="/assets/29-127.webp" alt="Vision Icon" className="vmv-icon" />
+              </div>
+              <h3 className="vmv-title">Our Vision</h3>
+              <p className="vmv-description">
+                To be the leading seafood brand in the Gulf, known for quality, reliability, and trust.
+              </p>
+            </div>
+            
+            {/* Our Values - Top Right */}
+            <div className="vmv-card values-card">
+              <div className="vmv-icon-circle">
+                <img src="/assets/29-139.webp" alt="Values Icon" className="vmv-icon" />
+              </div>
+              <h3 className="vmv-title">Our Values</h3>
+              <div className="vmv-description">
+                <p><strong>Quality:</strong> Only the freshest catches.</p>
+                <p><strong>Integrity:</strong> Transparent sourcing and fair trade.</p>
+                <p><strong>Sustainability:</strong> Protecting marine life for future generations.</p>
+              </div>
+            </div>
+            
+            {/* Our Mission - Bottom Center */}
+            <div className="vmv-card mission-card">
+              <div className="vmv-icon-circle">
+                <img src="/assets/29-133.webp" alt="Mission Icon" className="vmv-icon" />
+              </div>
+              <h3 className="vmv-title">Our Mission</h3>
+              <p className="vmv-description">
+                To bring the taste of the sea to every home and business in Saudi Arabia, while maintaining the highest standards of freshness and sustainability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modern Facilities Section */}
+      <section className="facilities-section">
+        <div className="container-fluid px-5">
+          <div className="row align-items-center g-5">
+            <div className="col-lg-6">
+              <h2 className="facilities-title">Our Modern Seafood Facilities</h2>
+              <p className="facilities-description">
+                Equipped With Advanced Cold Storage, Processing, And Packaging Units, Our Facilities Ensure That Every Product Maintains Its Freshness, Quality, And Safety From The Sea To Delivery.
+              </p>
+              <p className="facilities-description">
+                Located In Saudi Arabia, Our Modern Infrastructure Allows Us To Handle Large Volumes Efficiently — Meeting Both Local And International Standards.
+              </p>
+              <Link href="/products" className="explore-products-link">
+                <span className="explore-text">Explore Our Products</span>
+                <img src="/assets/59-29.svg" alt="arrow" className="explore-arrow" />
+              </Link>
+            </div>
+            <div className="col-lg-6">
+              <div className="facilities-image-container">
+                <img src="/assets/29-148.webp" alt="Modern Facilities" className="facilities-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer
+        logoImage="/assets/29-93.webp"
+        logoText="الخلجان العربية"
+        copyrightIcon="/assets/29-97.svg"
+      />
+    </>
+  );
+}
+
