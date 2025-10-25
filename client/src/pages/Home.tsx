@@ -3,11 +3,13 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Home() {
   const [shuffledImages, setShuffledImages] = useState<string[]>([]);
   const [hasShuffled, setHasShuffled] = useState(false);
   const imageGridRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   // Array of image sources
   const images = [
@@ -38,15 +40,28 @@ export default function Home() {
     setHasShuffled(true);
   }, []);
 
-  // Shuffle when scrolling into view
+  // Shuffle when scrolling into view and continuously while in view
   useEffect(() => {
     if (!hasShuffled) return; // Wait for initial shuffle
 
+    let intervalId: NodeJS.Timeout | null = null;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Shuffle every time the grid comes into view
         if (entry.isIntersecting) {
+          // Shuffle immediately when coming into view
           setShuffledImages(shuffleArray(images));
+
+          // Start continuous shuffling every 1 second
+          intervalId = setInterval(() => {
+            setShuffledImages(shuffleArray(images));
+          }, 1000); // Change images every 1 second
+        } else {
+          // Stop shuffling when out of view
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
         }
       },
       { threshold: 0.3 }
@@ -56,7 +71,12 @@ export default function Home() {
       observer.observe(imageGridRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
   }, [hasShuffled]);
 
   return (
@@ -65,18 +85,25 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="home-hero-section">
+        <video 
+          src="assets/hero-video.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="hero-background-video"
+        ></video>
         <div className="home-hero-overlay"></div>
-        
         <div className="container-fluid px-5">
           <div className="row align-items-center h-100">
             {/* Left Content */}
             <div className="col-lg-6">
               <div className="home-hero-content animate-fadeInUp">
-                <h1 className="home-hero-title">Freshness From The Sea To Your Table</h1>
+                <h1 className="home-hero-title">{t('home.hero.title')}</h1>
                 <p className="home-hero-description">
-                  Delivering Premium Seafood Across Saudi Arabia — Trusted By Restaurants, Hotels, And Families For Over 10 Years.
+                  {t('home.hero.description')}
                 </p>
-                <a href="/products" className="btn home-hero-btn">Explore Our Products</a>
+                <a href="/products" className="btn home-hero-btn">{t('home.hero.cta')}</a>
               </div>
             </div>
             
@@ -84,18 +111,18 @@ export default function Home() {
             <div className="col-lg-6">
               <div className="floating-cards-container">
                 <div className="floating-card card-1 animate-fadeIn delay-200">
-                  <h3>Trusted for Quality, Freshness, and Excellence.</h3>
-                  <p>With a passion for quality and a commitment to excellence, we proudly serve Saudi Arabia with the freshest and most reliable marine products.</p>
+                  <h3>{t('home.floatingCards.card1.title')}</h3>
+                  <p>{t('home.floatingCards.card1.description')}</p>
                 </div>
-                
+
                 <div className="floating-card card-2 animate-fadeIn delay-400">
-                  <h3>Freshness from the Sea, Crafted with Passion.</h3>
-                  <p>We are a Saudi seafood company dedicated to providing premium, sustainably sourced fish and marine products — trusted by restaurants, hotels, and families across the Kingdom.</p>
+                  <h3>{t('home.floatingCards.card2.title')}</h3>
+                  <p>{t('home.floatingCards.card2.description')}</p>
                 </div>
-                
+
                 <div className="floating-card card-3 animate-fadeIn delay-600">
-                  <h3>Sustainably Sourced. Expertly Delivered.</h3>
-                  <p>For over two decades, we've been delivering the finest selection of fresh and frozen seafood across Saudi Arabia.</p>
+                  <h3>{t('home.floatingCards.card3.title')}</h3>
+                  <p>{t('home.floatingCards.card3.description')}</p>
                 </div>
               </div>
             </div>
@@ -111,14 +138,14 @@ export default function Home() {
               <img src="/assets/19-252.webp" alt="Fresh Seafood" className="home-about-img" />
             </div>
             <div className="col-lg-7">
-              <h2 className="home-about-title">From the Red Sea to Your Plate – Delivering a rich selection of premium fish and seafood that cater to every taste and culinary style.</h2>
+              <h2 className="home-about-title">{t('home.about.title')}</h2>
               <div className="home-about-content">
-                <p>As one of Saudi Arabia's trusted seafood companies, we take pride in delivering the finest indian Mackerel (Bagha) — a local favorite known for its rich taste and high nutritional value.</p>
-                <p className="highlight-text">Frozen Baagha (Mackerel) is available for export in large quantities with premium quality and international standards.</p>
-                <p>Our Baagha fish is freshly sourced, expertly cleaned, and delivered daily to ensure unmatched quality and freshness. Whether for restaurants, hotels, or family kitchens, our Mackerel remains the top choice for authentic Saudi seafood lovers.</p>
+                <p>{t('home.about.paragraph1')}</p>
+                <p className="highlight-text">{t('home.about.paragraph2')}</p>
+                <p>{t('home.about.paragraph3')}</p>
               </div>
               <a href="/about" className="home-learn-more">
-                Learn More About Us
+                {t('home.about.learnMore')}
                 <img src="/assets/19-262.svg" alt="arrow" className="arrow-icon" />
               </a>
             </div>
@@ -150,38 +177,30 @@ export default function Home() {
             {/* Categories List */}
             <div className="col-lg-6">
               <div className="categories-list animate-fadeIn">
-                <h2 className="categories-title">CATEGORIES</h2>
+                <h2 className="categories-title">{t('home.categories.title')}</h2>
                 <div className="category-item">
-                  <span>Hamour</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.hamour')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Lobsters</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.lobsters')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Shrimps</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.shrimps')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Crab</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.crab')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Frozen Seafood Mix</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.frozenSeafoodMix')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Calamari (Squid)</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.calamari')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Salmon</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.salmon')}</span>
                 </div>
                 <div className="category-item">
-                  <span>Smoked Products</span>
-                  <span className="category-plus">+</span>
+                  <span>{t('home.categories.smokedProducts')}</span>
                 </div>
               </div>
             </div>
@@ -192,62 +211,70 @@ export default function Home() {
       {/* Statistics Section */}
       <section className="home-stats-section">
         <div className="container">
-          <p className="home-stats-intro">Over The Years, We've Built A Strong Reputation In Saudi Arabia's Seafood Market Through Quality, Trust, And Consistency.<br/>Our Numbers Reflect Our Passion For Excellence And Our Commitment To Delivering The Freshest Seafood — Especially Our Famous Bagha (Indian Mackerel) — To Customers Across The Kingdom.</p>
-          
+          <p className="home-stats-intro">{t('home.stats.intro')}</p>
+
           <div className="home-stats-cards">
             <div className="stat-card animate-fadeInUp">
               <h3><AnimatedCounter end={100} prefix="+" /></h3>
-              <p><strong>Types</strong> Of Fresh Fish</p>
+              <p><strong>{t('home.stats.types')}</strong> {t('home.stats.typesLabel')}</p>
             </div>
             <div className="stat-card animate-fadeInUp delay-200">
               <h3><AnimatedCounter end={1200} prefix="+" /></h3>
-              <p><strong>Clients</strong> Across Saudi Arabia</p>
+              <p><strong>{t('home.stats.clients')}</strong> {t('home.stats.clientsLabel')}</p>
             </div>
             <div className="stat-card animate-fadeInUp delay-400">
               <h3><AnimatedCounter end={10} prefix="+" /></h3>
-              <p><strong>Years</strong> Of Experience</p>
+              <p><strong>{t('home.stats.years')}</strong> {t('home.stats.yearsLabel')}</p>
             </div>
             <div className="stat-card animate-fadeInUp delay-600">
               <h3><AnimatedCounter end={24} suffix="/7" isSpecial={true} /></h3>
-              <p><strong>Delivery</strong> Service</p>
+              <p><strong>{t('home.stats.delivery')}</strong> {t('home.stats.deliveryLabel')}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      
       <section className="home-services-section">
         <div className="container">
-          <h2 className="home-services-title animate-fadeIn">Our Services</h2>
+          <h2 className="home-services-title animate-fadeIn">{t('home.services.title')}</h2>
           <div className="row align-items-center">
             <div className="col-lg-6">
               <img src="/assets/19-293.webp" alt="Our Services" className="home-services-img animate-fadeIn" />
             </div>
             <div className="col-lg-6">
               <div className="services-list">
-                <div className="service-card animate-fadeInUp">
+                <div className="home-service-card animate-fadeInUp">
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-297.svg" alt="Fresh Supply" className="service-icon" />
                   </div>
-                  <h3>Fresh and Frozen Seafood Supply</h3>
+                  <div className="service-text">
+                    <h3>{t('home.services.service1')}</h3>
+                  </div>
                 </div>
-                <div className="service-card animate-fadeInUp delay-200">
+                <div className="home-service-card animate-fadeInUp delay-200">
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-307.svg" alt="Processing" className="service-icon" />
                   </div>
-                  <h3>Seafood Processing & Packaging</h3>
+                  <div className="service-text">
+                    <h3>{t('home.services.service2')}</h3>
+                  </div>
                 </div>
-                <div className="service-card animate-fadeInUp delay-400">
+                <div className="home-service-card animate-fadeInUp delay-400">
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-316.svg" alt="Hotel Supply" className="service-icon" />
                   </div>
-                  <h3>Hotel & Restaurant Supply</h3>
+                  <div className="service-text">
+                    <h3>{t('home.services.service3')}</h3>
+                  </div>
                 </div>
-                <div className="service-card animate-fadeInUp delay-600">
+                <div className="home-service-card animate-fadeInUp delay-600">
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-330.svg" alt="Cold Storage" className="service-icon" />
                   </div>
-                  <h3>Cold Storage & Delivery</h3>
+                  <div className="service-text">
+                    <h3>{t('home.services.service4')}</h3>
+                  </div>
                 </div>
               </div>
             </div>
@@ -258,7 +285,7 @@ export default function Home() {
       {/* Contact Form Section */}
       <section className="home-contact-section">
         <div className="container">
-          <h2 className="home-contact-title animate-fadeIn">Looking for a reliable seafood supplier in Saudi Arabia?</h2>
+          <h2 className="home-contact-title animate-fadeIn">{t('home.contact.title')}</h2>
           <div className="row">
             <div className="col-lg-6">
               <ContactForm className="animate-fadeInUp" />
@@ -280,3 +307,4 @@ export default function Home() {
   );
 }
 
+{/* Services Section */}

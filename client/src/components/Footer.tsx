@@ -1,4 +1,5 @@
 import { Link } from 'wouter';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface FooterProps {
   logoImage: string;
@@ -7,10 +8,13 @@ interface FooterProps {
 }
 
 export default function Footer({ logoImage, logoText, copyrightIcon }: FooterProps) {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer-section">
+      <div className="footer-bg-overlay"></div>
       <div className="footer-overlay"></div>
-      <div className="container footer-container">
+      <div className="pt-4 container footer-container">
         <div className="row">
           <div className="col-lg-5">
             <div className="footer-logo-section">
@@ -23,8 +27,7 @@ export default function Footer({ logoImage, logoText, copyrightIcon }: FooterPro
               </div>
             </div>
             <p className="footer-description">
-              Arabian gulf is a Saudi-based seafood company committed to providing high-quality, fresh, and sustainable fish and marine products.<br/>
-              With years of experience in the industry, we ensure excellence from sea to table — trusted by restaurants, hotels, and families across Saudi Arabia.
+              {t('footer.description')}
             </p>
             <div className="footer-social">
               <a href="#" className="social-icon" aria-label="Instagram">
@@ -33,46 +36,46 @@ export default function Footer({ logoImage, logoText, copyrightIcon }: FooterPro
               <a href="#" className="social-icon" aria-label="Facebook">
                 <img src="/assets/19-375.webp" alt="Facebook" />
               </a>
-              <a href="#" className="social-icon" aria-label="WhatsApp">
-                <img src="/assets/19-371.webp" alt="WhatsApp" />
+              <a href="https://wa.me/966599754996" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="WhatsApp">
+                <img src="/assets/19-371.png" alt="WhatsApp" />
               </a>
             </div>
           </div>
-          
+
           <div className="col-lg-3">
-            <h3 className="footer-heading">Quick links</h3>
+            <h3 className="footer-heading">{t('footer.quickLinks')}</h3>
             <ul className="footer-links">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/services">Our services</Link></li>
-              <li><Link href="/about">Who are we?</Link></li>
-              <li><Link href="/contact">Contact us</Link></li>
-              <li><Link href="/products">Products</Link></li>
-              <li><Link href="/gallery">Gallery</Link></li>
+              <li><Link href="/">{t('footer.home')}</Link></li>
+              <li><Link href="/services">{t('footer.ourServices')}</Link></li>
+              <li><Link href="/about">{t('footer.whoAreWe')}</Link></li>
+              <li><Link href="/contact">{t('footer.contactUs')}</Link></li>
+              <li><Link href="/products">{t('footer.products')}</Link></li>
+              <li><Link href="/gallery">{t('footer.gallery')}</Link></li>
             </ul>
           </div>
-          
+
           <div className="col-lg-4">
-            <h3 className="footer-heading">Contacts</h3>
+            <h3 className="footer-heading">{t('footer.contacts')}</h3>
             <div className="footer-contact-info">
-              <p className="footer-contact-label">Official address:</p>
-              <p className="footer-contact-value">Toroghat Fishing Trading, 3990 AR Riyadh Rd</p>
-              
-              <p className="footer-contact-label">Contact us:</p>
+              <p className="footer-contact-label">{t('footer.officialAddress')}</p>
+              <p className="footer-contact-value">{t('footer.address')}</p>
+
+              <p className="footer-contact-label">{t('nav.contact')}:</p>
               <p className="footer-contact-value">
-                <a href="tel:+966599754996" className="contact-link">+966 59 975 4996</a>
+                <a href="tel:+966599754996" className="contact-link">{t('footer.phone')}</a>
               </p>
-              
-              <p className="footer-contact-label">Email:</p>
+
+              <p className="footer-contact-label">{t('contact.info.email')}</p>
               <p className="footer-contact-value">
-                <a href="mailto:Ahmed@arabian-gulfs.com" className="contact-link">Ahmed@arabian-gulfs.com</a>
+                <a href="mailto:Ahmed@arabian-gulfs.com" className="contact-link">{t('footer.email')}</a>
               </p>
             </div>
           </div>
         </div>
-        
+
         <div className="footer-copyright">
           <img src={copyrightIcon} alt="copyright" className="copyright-icon" />
-          <span>All rights reserved Arabian gulf</span>
+          <span>{t('footer.copyright')}</span>
         </div>
       </div>
     </footer>

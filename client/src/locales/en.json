@@ -1,0 +1,226 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "products": "Products",
+    "gallery": "Gallery",
+    "contact": "Contact Us",
+    "language": "English"
+  },
+  "home": {
+    "hero": {
+      "title": "Freshness From The Sea To Your Table",
+      "description": "Delivering Premium Seafood Across Saudi Arabia — Trusted By Restaurants, Hotels, And Families For Over 10 Years.",
+      "cta": "Explore Our Products"
+    },
+    "floatingCards": {
+      "card1": {
+        "title": "Trusted for Quality, Freshness, and Excellence.",
+        "description": "With a passion for quality and a commitment to excellence, we proudly serve Saudi Arabia with the freshest and most reliable marine products."
+      },
+      "card2": {
+        "title": "Freshness from the Sea, Crafted with Passion.",
+        "description": "We are a Saudi seafood company dedicated to providing premium, sustainably sourced fish and marine products — trusted by restaurants, hotels, and families across the Kingdom."
+      },
+      "card3": {
+        "title": "Sustainably Sourced. Expertly Delivered.",
+        "description": "For over two decades, we've been delivering the finest selection of fresh and frozen seafood across Saudi Arabia."
+      }
+    },
+    "about": {
+      "title": "From the Red Sea to Your Plate – Delivering a rich selection of premium fish and seafood that cater to every taste and culinary style.",
+      "paragraph1": "As one of Saudi Arabia's trusted seafood companies, we take pride in delivering the finest indian Mackerel (Bagha) — a local favorite known for its rich taste and high nutritional value.",
+      "paragraph2": "Frozen Baagha (Mackerel) is available for export in large quantities with premium quality and international standards.",
+      "paragraph3": "Our Baagha fish is freshly sourced, expertly cleaned, and delivered daily to ensure unmatched quality and freshness. Whether for restaurants, hotels, or family kitchens, our Mackerel remains the top choice for authentic Saudi seafood lovers.",
+      "learnMore": "Learn More About Us"
+    },
+    "categories": {
+      "title": "CATEGORIES",
+      "hamour": "Hamour",
+      "lobsters": "Lobsters",
+      "shrimps": "Shrimps",
+      "crab": "Crab",
+      "frozenSeafoodMix": "Frozen Seafood Mix",
+      "calamari": "Calamari (Squid)",
+      "salmon": "Salmon",
+      "smokedProducts": "Smoked Products"
+    },
+    "stats": {
+      "intro": "Over The Years, We've Built A Strong Reputation In Saudi Arabia's Seafood Market Through Quality, Trust, And Consistency. Our Numbers Reflect Our Passion For Excellence And Our Commitment To Delivering The Freshest Seafood — Especially Our Famous Bagha (Indian Mackerel) — To Customers Across The Kingdom.",
+      "types": "Types",
+      "typesLabel": "Of Fresh Fish",
+      "clients": "Clients",
+      "clientsLabel": "Across Saudi Arabia",
+      "years": "Years",
+      "yearsLabel": "Of Experience",
+      "delivery": "Delivery",
+      "deliveryLabel": "Service"
+    },
+    "services": {
+      "title": "Our Services",
+      "service1": "Fresh and Frozen Seafood Supply",
+      "service2": "Seafood Processing & Packaging",
+      "service3": "Hotel & Restaurant Supply",
+      "service4": "Cold Storage & Delivery"
+    },
+    "contact": {
+      "title": "Looking for a reliable seafood supplier in Saudi Arabia?"
+    }
+  },
+  "about": {
+    "hero": {
+      "title1": "We Are A Saudi-Based Seafood Company Dedicated To Delivering Fresh Frozen, Sustainable,",
+      "title2": "And High-Quality Fish And Marine Products",
+      "title3": "To The Local Market And Beyond."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading seafood brand in the Gulf, known for quality, reliability, and trust."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": "Quality:",
+      "qualityDesc": "Only the freshest catches.",
+      "integrity": "Integrity:",
+      "integrityDesc": "Transparent sourcing and fair trade.",
+      "sustainability": "Sustainability:",
+      "sustainabilityDesc": "Protecting marine life for future generations."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To bring the taste of the sea to every home and business in Saudi Arabia, while maintaining the highest standards of freshness and sustainability."
+    },
+    "facilities": {
+      "title": "Our Modern Seafood Facilities",
+      "paragraph1": "Equipped With Advanced Cold Storage, Processing, And Packaging Units, Our Facilities Ensure That Every Product Maintains Its Freshness, Quality, And Safety From The Sea To Delivery.",
+      "paragraph2": "Located In Saudi Arabia, Our Modern Infrastructure Allows Us To Handle Large Volumes Efficiently — Meeting Both Local And International Standards.",
+      "cta": "Explore Our Products"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "We Offer A Full Range Of Seafood Services Designed To Meet The Needs Of Restaurants, Hotels, And Distributors Across Saudi Arabia And Other Countries."
+    },
+    "cards": {
+      "card1": {
+        "title": "Fresh Fish Supply",
+        "description": "Daily catch delivered directly from local and international sources."
+      },
+      "card2": {
+        "title": "Seafood Processing",
+        "description": "Cleaned, cut, and packed with international hygiene standards."
+      },
+      "card3": {
+        "title": "Cold Storage & Logistics",
+        "description": "Maintained at ideal temperatures to preserve freshness."
+      },
+      "card4": {
+        "title": "Wholesale & Distribution",
+        "description": "Serving major seafood retailers and hospitality partners."
+      }
+    },
+    "whyChoose": {
+      "title": "Why Choose Our Seafood Services ?",
+      "paragraph1": "With A Commitment To Freshness, Precision, And Reliability, Our Seafood Services Are Designed To Meet The Highest Industry Standards.",
+      "paragraph2": "From Sourcing To Packaging And Delivery, We Handle Every Step With Care — Ensuring That Every Client Receives The Best Quality Seafood, On Time And In Perfect Condition.",
+      "cta": "Learn More About Us"
+    }
+  },
+  "products": {
+    "hero": {
+      "title": "Discover Our Premium Seafood Selection",
+      "description1": "Explore A Wide Variety Of Fresh And Frozen Seafood — Carefully Sourced, Processed, And Delivered With The Highest Standards Of Quality And Safety.",
+      "description2": "From Local Red Sea Treasures To Imported Favorites, We Provide The Perfect Catch For Every Taste And Need."
+    },
+    "search": {
+      "placeholder": "search...",
+      "button": "search"
+    },
+    "filters": {
+      "all": "All",
+      "freshFish": "Fresh Fish",
+      "frozenFish": "Frozen Fish",
+      "shellfish": "Shellfish",
+      "imported": "Imported"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Discover The World Behind Our Seafood",
+      "description1": "Take A Visual Journey Through Our Facilities, Daily Operations, And Premium Seafood Products.",
+      "description2": "Each Photo Captures Our Dedication To Freshness, Quality, And Excellence In Every Step — From The Sea To Your Table.",
+      "cta": "Explore Our Gallery ↓"
+    },
+    "facilities": {
+      "title": "Inside Our Facilities",
+      "description1": "A Closer Look At Our Modern Seafood Facilities — From Cold Storage And Processing Areas To Packaging And Logistics.",
+      "description2": "Every Detail Reflects Our Commitment To Maintaining The Highest Standards Of Hygiene, Freshness, And Efficiency.",
+      "frozen": "Frozen Department",
+      "refrigerated": "Refrigerated Fresh Section",
+      "delivery": "Refrigerated Delivery Service",
+      "learnMore": "Learn More About Us"
+    },
+    "freshness": {
+      "title": "Freshness You Can See",
+      "description1": "Explore Our Diverse Selection Of Fresh And Frozen Seafood — Carefully Handled To Preserve Its Natural Taste And Texture.",
+      "description2": "From Red Sea Fish To Imported Delicacies, Every Product Is A Reflection Of Our Passion For Quality.",
+      "exploreProducts": "Explore Our Products"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get In Touch With Our Team For Orders, Partnerships, Or Inquiries."
+    },
+    "form": {
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending..."
+    },
+    "info": {
+      "title": "Contacts",
+      "officialAddress": "Official address:",
+      "address": "Toroghat Fishing Trading, 3990 AR Riyadh Rd",
+      "contactUs": "Contact us:",
+      "phone": "+966 59 975 4996",
+      "email": "Email:",
+      "emailAddress": "Ahmed@arabian-gulfs.com",
+      "owner": "Owner",
+      "ownerName": "Abdulaziz bin Omar Al-Hasani",
+      "ownerPhone": "+966 53 609 2876",
+      "ceo": "Ceo:",
+      "ceoName": "Ahmed Abouzaher farghly",
+      "ceoPhone": "+966 59 975 4996"
+    }
+  },
+  "contactForm": {
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "successTitle": "Thank you for your message!",
+    "successMessage": "We'll get back to you as soon as possible.",
+    "sendAnother": "Send Another Message"
+  },
+  "footer": {
+    "description": "Arabian gulf is a Saudi-based seafood company committed to providing high-quality, fresh, and sustainable fish and marine products. With years of experience in the industry, we ensure excellence from sea to table — trusted by restaurants, hotels, and families across Saudi Arabia.",
+    "quickLinks": "Quick links",
+    "home": "Home",
+    "ourServices": "Our services",
+    "whoAreWe": "Who are we?",
+    "contactUs": "Contact us",
+    "products": "Products",
+    "gallery": "Gallery",
+    "contacts": "Contacts",
+    "officialAddress": "Official address:",
+    "address": "Toroghat Fishing Trading, 3990 AR Riyadh Rd",
+    "phone": "+966 59 975 4996",
+    "email": "Ahmed@arabian-gulfs.com",
+    "copyright": "All rights reserved Arabian gulf"
+  }
+}

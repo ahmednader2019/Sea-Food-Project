@@ -1,8 +1,23 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Link } from 'wouter';
+import { useTranslation } from '../hooks/useTranslation';
+import { useEffect } from 'react';
 
 export default function Services() {
+  const { t } = useTranslation();
+
+  // Reinitialize scroll animations when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (window.reinitializeScrollAnimations) {
+        window.reinitializeScrollAnimations();
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Navigation />
@@ -11,7 +26,7 @@ export default function Services() {
       <section className="services-hero-section">
         <div className="services-hero-content">
           <h1 className="services-hero-title">
-            We Offer A Full Range Of Seafood Services Designed To Meet The Needs Of Restaurants, Hotels, And Distributors Across Saudi Arabia And Other Countries.
+            {t('services.hero.title')}
           </h1>
         </div>
       </section>
@@ -22,40 +37,40 @@ export default function Services() {
           <div className="row g-3 justify-content-center" data-stagger="150">
             {/* Service Card 1 */}
             <div className="col-lg-3 col-md-6">
-              <div className="service-card">
-                <h3 className="service-card-title">Fresh Fish Supply</h3>
+              <div className="services-page-card">
+                <h3 className="service-card-title">{t('services.cards.card1.title')}</h3>
                 <p className="service-card-description">
-                  Daily catch delivered directly from local and international sources.
+                  {t('services.cards.card1.description')}
                 </p>
               </div>
             </div>
-            
+
             {/* Service Card 2 */}
             <div className="col-lg-3 col-md-6">
-              <div className="service-card">
-                <h3 className="service-card-title">Seafood Processing</h3>
+              <div className="services-page-card">
+                <h3 className="service-card-title">{t('services.cards.card2.title')}</h3>
                 <p className="service-card-description">
-                  Cleaned, cut, and packed with international hygiene standards.
+                  {t('services.cards.card2.description')}
                 </p>
               </div>
             </div>
-            
+
             {/* Service Card 3 */}
             <div className="col-lg-3 col-md-6">
-              <div className="service-card">
-                <h3 className="service-card-title">Cold Storage & Logistics</h3>
+              <div className="services-page-card">
+                <h3 className="service-card-title">{t('services.cards.card3.title')}</h3>
                 <p className="service-card-description">
-                  Maintained at ideal temperatures to preserve freshness.
+                  {t('services.cards.card3.description')}
                 </p>
               </div>
             </div>
-            
+
             {/* Service Card 4 */}
             <div className="col-lg-3 col-md-6">
-              <div className="service-card">
-                <h3 className="service-card-title">Wholesale & Distribution</h3>
+              <div className="services-page-card">
+                <h3 className="service-card-title">{t('services.cards.card4.title')}</h3>
                 <p className="service-card-description">
-                  Serving major seafood retailers and hospitality partners.
+                  {t('services.cards.card4.description')}
                 </p>
               </div>
             </div>
@@ -68,24 +83,24 @@ export default function Services() {
         <div className="container-fluid px-5">
           <div className="row align-items-center g-4">
             {/* Left Content - Bordered Box */}
-            <div className="col-lg-6 scroll-animate">
+            <div className="col-lg-6 scroll-animate why-choose-fallback">
               <div className="why-choose-content-box">
-                <h2 className="why-choose-title">Why Choose Our Seafood Services ?</h2>
+                <h2 className="why-choose-title">{t('services.whyChoose.title')}</h2>
                 <p className="why-choose-text">
-                  With A Commitment To Freshness, Precision, And Reliability, Our Seafood Services Are Designed To Meet The Highest Industry Standards.
+                  {t('services.whyChoose.paragraph1')}
                 </p>
                 <p className="why-choose-text">
-                  From Sourcing To Packaging And Delivery, We Handle Every Step With Care — Ensuring That Every Client Receives The Best Quality Seafood, On Time And In Perfect Condition.
+                  {t('services.whyChoose.paragraph2')}
                 </p>
                 <Link href="/about" className="learn-more-btn">
-                  <span className="learn-more-text">Learn More About Us</span>
+                  <span className="learn-more-text">{t('services.whyChoose.cta')}</span>
                   <img src="/assets/59-22.svg" alt="arrow" className="learn-more-icon" />
                 </Link>
               </div>
             </div>
 
             {/* Right Image */}
-            <div className="col-lg-6 scroll-animate delay-200">
+            <div className="col-lg-6 scroll-animate delay-200 why-choose-fallback">
               <img src="/assets/143-97.webp" alt="Packaged Seafood" className="why-choose-image" />
             </div>
           </div>

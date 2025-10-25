@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
   initParallaxEffects();
 });
 
+// Also initialize after a delay to catch React-rendered content
+setTimeout(function() {
+  initScrollAnimations();
+  initStaggerAnimations();
+}, 1000);
+
+// Function to reinitialize animations (can be called from React components)
+window.reinitializeScrollAnimations = function() {
+  initScrollAnimations();
+  initStaggerAnimations();
+};
+
 /**
  * Initialize Intersection Observer for scroll animations
  */

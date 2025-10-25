@@ -1,11 +1,14 @@
 import Navigation from '@/components/Navigation';
 import { Link } from 'wouter';
+import Footer from '@/components/Footer';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Gallery() {
-  return (
-    <div className="min-h-screen">
-      <Navigation />
+  const { t } = useTranslation();
 
+  return (
+    <>
+      <Navigation />
       {/* Hero Section */}
       <section className="gallery-hero-section position-relative">
         <div className="hero-overlay"></div>
@@ -13,15 +16,15 @@ export default function Gallery() {
           <div className="row justify-content-center">
             <div className="col-lg-10 text-center">
               <h1 className="gallery-hero-title mb-4 animate-fadeInUp">
-                Discover The World Behind Our Seafood
+                {t('gallery.hero.title')}
               </h1>
               <p className="gallery-hero-description mb-5 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-                Take A Visual Journey Through Our Facilities, Daily Operations, And Premium Seafood Products.
+                {t('gallery.hero.description1')}
                 <br />
-                Each Photo Captures Our Dedication To Freshness, Quality, And Excellence In Every Step — From The Sea To Your Table.
-              </p>
+                {t('gallery.hero.description2')}
+              </p>``
               <a href="#facilities" className="btn btn-primary btn-lg gallery-cta-btn animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-                Explore Our Gallery ↓
+                {t('gallery.hero.cta')}
               </a>
             </div>
           </div>
@@ -33,11 +36,11 @@ export default function Gallery() {
         <div className="container">
           <div className="row mb-5">
             <div className="col-lg-10">
-              <h2 className="section-title mb-4 animate-on-scroll">Inside Our Facilities</h2>
+              <h2 className="section-title mb-4 animate-on-scroll">{t('gallery.facilities.title')}</h2>
               <p className="section-description animate-on-scroll">
-                A Closer Look At Our Modern Seafood Facilities — From Cold Storage And Processing Areas To Packaging And Logistics.
+                {t('gallery.facilities.description1')}
                 <br />
-                Every Detail Reflects Our Commitment To Maintaining The Highest Standards Of Hygiene, Freshness, And Efficiency.
+                {t('gallery.facilities.description2')}
               </p>
             </div>
           </div>
@@ -47,7 +50,7 @@ export default function Gallery() {
               <div className="facility-card animate-on-scroll">
                 <img src="/assets/77-318.webp" alt="Frozen Department" className="facility-image" />
                 <div className="facility-overlay">
-                  <h3 className="facility-title">Frozen Department</h3>
+                  <h3 className="facility-title">{t('gallery.facilities.frozen')}</h3>
                 </div>
               </div>
             </div>
@@ -55,7 +58,7 @@ export default function Gallery() {
               <div className="facility-card animate-on-scroll" style={{ animationDelay: '0.1s' }}>
                 <img src="/assets/77-322.webp" alt="Refrigerated Fresh Section" className="facility-image" />
                 <div className="facility-overlay">
-                  <h3 className="facility-title">Refrigerated Fresh Section</h3>
+                  <h3 className="facility-title">{t('gallery.facilities.refrigerated')}</h3>
                 </div>
               </div>
             </div>
@@ -63,7 +66,7 @@ export default function Gallery() {
               <div className="facility-card animate-on-scroll" style={{ animationDelay: '0.2s' }}>
                 <img src="/assets/141-15.webp" alt="Refrigerated Delivery Service" className="facility-image" />
                 <div className="facility-overlay">
-                  <h3 className="facility-title">Refrigerated Delivery Service</h3>
+                  <h3 className="facility-title">{t('gallery.facilities.delivery')}</h3>
                 </div>
               </div>
             </div>
@@ -72,7 +75,7 @@ export default function Gallery() {
           <div className="row">
             <div className="col-12 text-end">
               <Link href="/about" className="gradient-link animate-on-scroll">
-                Learn More About Us
+                {t('gallery.facilities.learnMore')}
                 <img src="/assets/77-331.svg" alt="Arrow" className="ms-2" style={{ width: '24px', height: '24px' }} />
               </Link>
             </div>
@@ -88,11 +91,11 @@ export default function Gallery() {
         <div className="container">
           <div className="row mb-5">
             <div className="col-lg-10">
-              <h2 className="section-title mb-4 animate-on-scroll">Freshness You Can See</h2>
+              <h2 className="section-title mb-4 animate-on-scroll">{t('gallery.freshness.title')}</h2>
               <p className="section-description animate-on-scroll">
-                Explore Our Diverse Selection Of Fresh And Frozen Seafood — Carefully Handled To Preserve Its Natural Taste And Texture.
+                {t('gallery.freshness.description1')}
                 <br />
-                From Red Sea Fish To Imported Delicacies, Every Product Is A Reflection Of Our Passion For Quality.
+                {t('gallery.freshness.description2')}
               </p>
             </div>
           </div>
@@ -128,7 +131,7 @@ export default function Gallery() {
           <div className="row">
             <div className="col-12 text-end">
               <Link href="/products" className="gradient-link animate-on-scroll">
-                Explore Our Products
+                {t('gallery.freshness.exploreProducts')}
                 <img src="/assets/77-347.svg" alt="Arrow" className="ms-2" style={{ width: '24px', height: '24px' }} />
               </Link>
             </div>
@@ -137,71 +140,12 @@ export default function Gallery() {
       </section>
 
       {/* Footer */}
-      <footer className="footer-section">
-        <div className="footer-overlay"></div>
-        <div className="container position-relative">
-          <div className="row">
-            <div className="col-lg-5 mb-4">
-              <div className="footer-logo-section mb-4">
-                <img src="/assets/77-283.webp" alt="Arabian Gulf Logo" className="footer-logo mb-3" />
-                <p className="footer-arabic-text">الخلجان العربية</p>
-              </div>
-              <p className="footer-description mb-4">
-                Arabian gulf is a Saudi-based seafood company committed to providing high-quality, fresh, and sustainable fish and marine products.
-                <br /><br />
-                With years of experience in the industry, we ensure excellence from sea to table — trusted by restaurants, hotels, and families across Saudi Arabia.
-              </p>
-              <div className="footer-social-icons">
-                <a href="#" className="social-icon">
-                  <img src="/assets/77-294.webp" alt="Instagram" />
-                </a>
-                <a href="#" className="social-icon">
-                  <img src="/assets/77-296.webp" alt="Facebook" />
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-whatsapp"></i>
-                </a>
-              </div>
-            </div>
-
-            <div className="col-lg-3 col-md-6 mb-4">
-              <h4 className="footer-heading mb-4">Quick links</h4>
-              <ul className="footer-links">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/services">Our Services</Link></li>
-                <li><Link href="/about">Who Are We?</Link></li>
-                <li><Link href="/contact">Contact Us</Link></li>
-                <li><Link href="/products">Products</Link></li>
-                <li><Link href="/gallery">Gallery</Link></li>
-              </ul>
-            </div>
-
-            <div className="col-lg-4 col-md-6 mb-4">
-              <h4 className="footer-heading mb-4">Contacts</h4>
-              <div className="footer-contact">
-                <p className="footer-contact-label">Official address:</p>
-                <p className="footer-contact-info">Toroghat Fishing Trading, 3990 AR Riyadh Rd</p>
-
-                <p className="footer-contact-label mt-3">Contact us:</p>
-                <p className="footer-contact-info">+966 59 975 4996</p>
-
-                <p className="footer-contact-label mt-3">Email:</p>
-                <p className="footer-contact-info">Ahmed@arabian-gulfs.com</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="row mt-5">
-            <div className="col-12 text-center">
-              <p className="footer-copyright">
-                <img src="/assets/77-287.svg" alt="Copyright" className="me-2" style={{ width: '24px', height: '24px' }} />
-                All rights reserved Arabian gulf
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+            <Footer
+                    logoImage="/assets/29-93.webp"
+                    logoText="الخلجان العربية"
+                    copyrightIcon="/assets/29-97.svg"
+            />
+    </>
   );
 }
 

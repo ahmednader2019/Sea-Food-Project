@@ -256,6 +256,24 @@
   transform: translateY(0);
 }
 
+/* Fallback for Why Choose Section - ensures visibility */
+.why-choose-fallback {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Fallback for Contact Form Section - ensures visibility */
+.contact-form-fallback {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Fallback for Contact Info Section - ensures visibility */
+.contact-info-fallback {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 /* Stagger Delays */
 .delay-100 {
   animation-delay: 0.1s;

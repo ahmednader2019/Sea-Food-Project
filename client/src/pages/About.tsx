@@ -1,8 +1,11 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Link } from 'wouter';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Navigation />
@@ -11,8 +14,8 @@ export default function About() {
       <section className="about-hero-section">
         <div className="about-hero-content hero-animate">
           <h1 className="about-hero-title animate-fadeInUp">
-            We Are A Saudi-Based Seafood Company Dedicated To Delivering Fresh Frozen, Sustainable, 
-            <span className="text-highlight"> And High-Quality Fish And Marine Products</span> To The Local Market And Beyond.
+            {t('about.hero.title1')}
+            <span className="text-highlight"> {t('about.hero.title2')}</span> {t('about.hero.title3')}
           </h1>
         </div>
       </section>
@@ -31,33 +34,33 @@ export default function About() {
               <div className="vmv-icon-circle">
                 <img src="/assets/29-127.webp" alt="Vision Icon" className="vmv-icon" />
               </div>
-              <h3 className="vmv-title">Our Vision</h3>
+              <h3 className="vmv-title">{t('about.vision.title')}</h3>
               <p className="vmv-description">
-                To be the leading seafood brand in the Gulf, known for quality, reliability, and trust.
+                {t('about.vision.description')}
               </p>
             </div>
-            
+
             {/* Our Values - Top Right */}
             <div className="vmv-card values-card">
               <div className="vmv-icon-circle">
                 <img src="/assets/29-139.webp" alt="Values Icon" className="vmv-icon" />
               </div>
-              <h3 className="vmv-title">Our Values</h3>
+              <h3 className="vmv-title">{t('about.values.title')}</h3>
               <div className="vmv-description">
-                <p><strong>Quality:</strong> Only the freshest catches.</p>
-                <p><strong>Integrity:</strong> Transparent sourcing and fair trade.</p>
-                <p><strong>Sustainability:</strong> Protecting marine life for future generations.</p>
+                <p><strong>{t('about.values.quality')}</strong> {t('about.values.qualityDesc')}</p>
+                <p><strong>{t('about.values.integrity')}</strong> {t('about.values.integrityDesc')}</p>
+                <p><strong>{t('about.values.sustainability')}</strong> {t('about.values.sustainabilityDesc')}</p>
               </div>
             </div>
-            
+
             {/* Our Mission - Bottom Center */}
             <div className="vmv-card mission-card">
               <div className="vmv-icon-circle">
                 <img src="/assets/29-133.webp" alt="Mission Icon" className="vmv-icon" />
               </div>
-              <h3 className="vmv-title">Our Mission</h3>
+              <h3 className="vmv-title">{t('about.mission.title')}</h3>
               <p className="vmv-description">
-                To bring the taste of the sea to every home and business in Saudi Arabia, while maintaining the highest standards of freshness and sustainability.
+                {t('about.mission.description')}
               </p>
             </div>
           </div>
@@ -69,15 +72,15 @@ export default function About() {
         <div className="container-fluid px-5">
           <div className="row align-items-center g-5">
             <div className="col-lg-6">
-              <h2 className="facilities-title">Our Modern Seafood Facilities</h2>
+              <h2 className="facilities-title">{t('about.facilities.title')}</h2>
               <p className="facilities-description">
-                Equipped With Advanced Cold Storage, Processing, And Packaging Units, Our Facilities Ensure That Every Product Maintains Its Freshness, Quality, And Safety From The Sea To Delivery.
+                {t('about.facilities.paragraph1')}
               </p>
               <p className="facilities-description">
-                Located In Saudi Arabia, Our Modern Infrastructure Allows Us To Handle Large Volumes Efficiently — Meeting Both Local And International Standards.
+                {t('about.facilities.paragraph2')}
               </p>
               <Link href="/products" className="explore-products-link">
-                <span className="explore-text">Explore Our Products</span>
+                <span className="explore-text">{t('about.facilities.cta')}</span>
                 <img src="/assets/59-29.svg" alt="arrow" className="explore-arrow" />
               </Link>
             </div>

@@ -72,25 +72,50 @@ export function useContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+    e.stopPropagation();
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
-      // Simulate API call - replace with actual API endpoint
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      
-      setIsSubmitted(true);
-      setFormData({ name: '', phone: '', email: '', message: '' });
+      // Send form data to backend API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        let errorMessage = 'Failed to send message';
+        try {
+          const result = await response.json();
+          errorMessage = result.error || errorMessage;
+        } catch {
+          // Response is not JSON
+          errorMessage = 'Server error occurred';
+        }
+        throw new Error(errorMessage);
+      }
+
+      const result = await response.json();
+      console.log('Form submitted successfully:', result);
+
+      // Use setTimeout to avoid React state update issues
+      setTimeout(() => {
+        setIsSubmitted(true);
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      }, 0);
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Handle error state
+      // Set a general error message
+      setErrors({
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again.'
+      });
     } finally {
       setIsSubmitting(false);
     }

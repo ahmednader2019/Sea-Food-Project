@@ -1,10 +1,12 @@
 import { useContactForm } from '@/hooks/useContactForm';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface ContactFormProps {
   className?: string;
 }
 
 export default function ContactForm({ className = '' }: ContactFormProps) {
+  const { t } = useTranslation();
   const {
     formData,
     errors,
@@ -20,10 +22,10 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
       <div className={`contact-form-success ${className}`}>
         <div className="success-message">
           <div className="success-icon">✓</div>
-          <h3>Thank you for your message!</h3>
-          <p>We'll get back to you as soon as possible.</p>
-          <button onClick={resetForm} className="btn btn-secondary">
-            Send Another Message
+          <h3>{t('contactForm.successTitle')}</h3>
+          <p>{t('contactForm.successMessage')}</p>
+          <button type="button" onClick={resetForm} className="btn btn-secondary">
+            {t('contactForm.sendAnother')}
           </button>
         </div>
       </div>
@@ -36,63 +38,63 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
         <input
           type="text"
           className={`form-control ${errors.name ? 'error' : ''}`}
-          placeholder="Full Name"
+          placeholder={t('contactForm.fullName')}
           value={formData.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
           disabled={isSubmitting}
         />
         {errors.name && <span className="error-message">{errors.name}</span>}
       </div>
-      
+
       <div className="form-group">
         <input
           type="tel"
           className={`form-control ${errors.phone ? 'error' : ''}`}
-          placeholder="Phone Number"
+          placeholder={t('contactForm.phoneNumber')}
           value={formData.phone}
           onChange={(e) => handleInputChange('phone', e.target.value)}
           disabled={isSubmitting}
         />
         {errors.phone && <span className="error-message">{errors.phone}</span>}
       </div>
-      
+
       <div className="form-group">
         <input
           type="email"
           className={`form-control ${errors.email ? 'error' : ''}`}
-          placeholder="Email"
+          placeholder={t('contactForm.email')}
           value={formData.email}
           onChange={(e) => handleInputChange('email', e.target.value)}
           disabled={isSubmitting}
         />
         {errors.email && <span className="error-message">{errors.email}</span>}
       </div>
-      
+
       <div className="form-group">
         <textarea
           className={`form-control ${errors.message ? 'error' : ''}`}
           rows={4}
-          placeholder="Message"
+          placeholder={t('contactForm.message')}
           value={formData.message}
           onChange={(e) => handleInputChange('message', e.target.value)}
           disabled={isSubmitting}
         />
         {errors.message && <span className="error-message">{errors.message}</span>}
       </div>
-      
-      <button 
-        type="submit" 
+
+      <button
+        type="submit"
         className={`btn home-contact-btn ${isSubmitting ? 'loading' : ''}`}
         disabled={isSubmitting}
       >
         {isSubmitting ? (
           <>
             <span className="spinner"></span>
-            Sending...
+            {t('contactForm.sending')}
           </>
         ) : (
           <>
-            Send
+            {t('contactForm.send')}
             <img src="/assets/19-356.svg" alt="send" className="send-icon" />
           </>
         )}
