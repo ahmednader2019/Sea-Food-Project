@@ -1,5 +1,5 @@
 /**
- * ARABIAN GULF SEAFOOD - SCROLL ANIMATIONS
+ * Arabian Gulfs SEAFOOD - SCROLL ANIMATIONS
  * Intersection Observer for smooth scroll-based animations
  */
 
@@ -36,8 +36,10 @@ function initScrollAnimations() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        // Optional: unobserve after animation to improve performance
-        // observer.unobserve(entry.target);
+      } else {
+        // Remove active class when element leaves viewport
+        // This allows the animation to replay when scrolling back
+        entry.target.classList.remove('active');
       }
     });
   }, observerOptions);

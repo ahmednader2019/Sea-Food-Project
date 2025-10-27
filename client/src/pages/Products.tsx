@@ -136,7 +136,7 @@ export default function Products() {
             {/* Product Cards */}
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product, index) => (
-                <div key={index} className="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div key={index} className="col-lg col-md-3 col-sm-4 col-6" style={{ flex: '0 0 20%', maxWidth: '20%' }}>
                   <div className="product-card">
                     <img src={`/assets/${product.img}`} alt={product.name} className="product-img" />
                     <div className="product-name">{product.name}</div>

@@ -23,7 +23,7 @@ You need to create an app-specific password for your Gmail account. Follow these
    - Click on "App passwords"
    - Select "Mail" for the app
    - Select "Other (Custom name)" for the device
-   - Enter a name like "Arabian Gulf Seafood Website"
+   - Enter a name like "Arabian Gulfs Seafood Website"
    - Click "Generate"
    - **Copy the 16-digit password** (it will look like: `xxxx xxxx xxxx xxxx`)
 

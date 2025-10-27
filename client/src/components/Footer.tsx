@@ -19,9 +19,9 @@ export default function Footer({ logoImage, logoText, copyrightIcon }: FooterPro
           <div className="col-lg-5">
             <div className="footer-logo-section">
               <div className="footer-logo-wrapper">
-                <img src={logoImage} alt="Arabian Gulf Logo" className="footer-logo-img" />
+                <img src={logoImage} alt="Arabian Gulfs Logo" className="footer-logo-img" />
                 <div className="footer-logo-text-container">
-                  <div className="footer-logo-text">Arabian gulf</div>
+                  <div className="footer-logo-text">Arabian Gulfs</div>
                   <div className="footer-logo-text-arabic">{logoText}</div>
                 </div>
               </div>

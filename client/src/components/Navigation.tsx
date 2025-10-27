@@ -55,7 +55,7 @@ export default function Navigation() {
           <div className="d-flex align-items-center">
             <a href="/">
               <div className="logo-container">
-                <img src="/assets/19-227.webp" alt="Arabian Gulf Logo" className="logo-img" />
+                <img src="/assets/19-227.webp" alt="Arabian Gulfs Logo" className="logo-img" />
               </div>
             </a>
           </div>

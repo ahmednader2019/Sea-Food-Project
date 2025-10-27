@@ -79,6 +79,13 @@ export default function Home() {
     };
   }, [hasShuffled]);
 
+  // Reinitialize scroll animations when component mounts
+  useEffect(() => {
+    if ((window as any).reinitializeScrollAnimations) {
+      (window as any).reinitializeScrollAnimations();
+    }
+  }, []);
+
   return (
     <>
       <Navigation />
@@ -131,13 +138,13 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="home-about-section animate-fadeIn">
+      <section className="home-about-section">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-5">
+            <div className="col-lg-5 scroll-animate" style={{ transitionDelay: '0ms' }}>
               <img src="/assets/19-252.webp" alt="Fresh Seafood" className="home-about-img" />
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-7 scroll-animate" style={{ transitionDelay: '200ms' }}>
               <h2 className="home-about-title">{t('home.about.title')}</h2>
               <div className="home-about-content">
                 <p>{t('home.about.paragraph1')}</p>
@@ -244,7 +251,7 @@ export default function Home() {
             </div>
             <div className="col-lg-6">
               <div className="services-list">
-                <div className="home-service-card animate-fadeInUp">
+                <div className="home-service-card scroll-animate" style={{ transitionDelay: '0ms' }}>
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-297.svg" alt="Fresh Supply" className="service-icon" />
                   </div>
@@ -252,7 +259,7 @@ export default function Home() {
                     <h3>{t('home.services.service1')}</h3>
                   </div>
                 </div>
-                <div className="home-service-card animate-fadeInUp delay-200">
+                <div className="home-service-card scroll-animate" style={{ transitionDelay: '200ms' }}>
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-307.svg" alt="Processing" className="service-icon" />
                   </div>
@@ -260,7 +267,7 @@ export default function Home() {
                     <h3>{t('home.services.service2')}</h3>
                   </div>
                 </div>
-                <div className="home-service-card animate-fadeInUp delay-400">
+                <div className="home-service-card scroll-animate" style={{ transitionDelay: '400ms' }}>
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-316.svg" alt="Hotel Supply" className="service-icon" />
                   </div>
@@ -268,7 +275,7 @@ export default function Home() {
                     <h3>{t('home.services.service3')}</h3>
                   </div>
                 </div>
-                <div className="home-service-card animate-fadeInUp delay-600">
+                <div className="home-service-card scroll-animate" style={{ transitionDelay: '600ms' }}>
                   <div className="service-icon-wrapper">
                     <img src="/assets/19-330.svg" alt="Cold Storage" className="service-icon" />
                   </div>
@@ -285,13 +292,13 @@ export default function Home() {
       {/* Contact Form Section */}
       <section className="home-contact-section">
         <div className="container">
-          <h2 className="home-contact-title animate-fadeIn">{t('home.contact.title')}</h2>
+          <h2 className="home-contact-title scroll-animate" style={{ transitionDelay: '0ms' }}>{t('home.contact.title')}</h2>
           <div className="row">
-            <div className="col-lg-6">
-              <ContactForm className="animate-fadeInUp" />
+            <div className="col-lg-6 scroll-animate" style={{ transitionDelay: '200ms' }}>
+              <ContactForm />
             </div>
-            <div className="col-lg-6">
-              <img src="/assets/19-399.webp" alt="Contact" className="home-contact-img animate-fadeIn" />
+            <div className="col-lg-6 scroll-animate" style={{ transitionDelay: '400ms' }}>
+              <img src="/assets/19-399.webp" alt="Contact" className="home-contact-img" />
             </div>
           </div>
         </div>

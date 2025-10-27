@@ -64,7 +64,7 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<void>
         </div>
 
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #666;">
-          <p>This email was sent from the Arabian Gulf Seafood contact form.</p>
+          <p>This email was sent from the Arabian Gulfs Seafood contact form.</p>
           <p>Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' })} (Saudi Arabia Time)</p>
         </div>
       </div>
@@ -80,7 +80,7 @@ Message:
 ${formData.message}
 
 ---
-This email was sent from the Arabian Gulf Seafood contact form.
+This email was sent from the Arabian Gulfs Seafood contact form.
 Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' })} (Saudi Arabia Time)
     `,
   };

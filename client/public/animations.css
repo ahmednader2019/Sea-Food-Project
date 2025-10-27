@@ -1,5 +1,5 @@
 /* ============================================
-   ARABIAN GULF SEAFOOD - ANIMATIONS
+   Arabian Gulfs SEAFOOD - ANIMATIONS
    Smooth, professional animations for all pages
    ============================================ */
 
@@ -247,8 +247,8 @@
 /* Initial Hidden State for Scroll Animations */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .scroll-animate.active {

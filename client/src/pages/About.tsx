@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Link } from 'wouter';
@@ -5,6 +6,13 @@ import { useTranslation } from '../hooks/useTranslation';
 
 export default function About() {
   const { t } = useTranslation();
+
+  // Reinitialize scroll animations when component mounts
+  useEffect(() => {
+    if ((window as any).reinitializeScrollAnimations) {
+      (window as any).reinitializeScrollAnimations();
+    }
+  }, []);
 
   return (
     <>
@@ -72,20 +80,22 @@ export default function About() {
         <div className="container-fluid px-5">
           <div className="row align-items-center g-5">
             <div className="col-lg-6">
-              <h2 className="facilities-title">{t('about.facilities.title')}</h2>
-              <p className="facilities-description">
-                {t('about.facilities.paragraph1')}
-              </p>
-              <p className="facilities-description">
-                {t('about.facilities.paragraph2')}
-              </p>
-              <Link href="/products" className="explore-products-link">
-                <span className="explore-text">{t('about.facilities.cta')}</span>
-                <img src="/assets/59-29.svg" alt="arrow" className="explore-arrow" />
-              </Link>
+              <div className="scroll-animate" style={{ transitionDelay: '0ms' }}>
+                <h2 className="facilities-title">{t('about.facilities.title')}</h2>
+                <p className="facilities-description">
+                  {t('about.facilities.paragraph1')}
+                </p>
+                <p className="facilities-description">
+                  {t('about.facilities.paragraph2')}
+                </p>
+                <Link href="/products" className="explore-products-link">
+                  <span className="explore-text">{t('about.facilities.cta')}</span>
+                  <img src="/assets/59-29.svg" alt="arrow" className="explore-arrow" />
+                </Link>
+              </div>
             </div>
             <div className="col-lg-6">
-              <div className="facilities-image-container">
+              <div className="facilities-image-container scroll-animate" style={{ transitionDelay: '200ms' }}>
                 <img src="/assets/29-148.webp" alt="Modern Facilities" className="facilities-image" />
               </div>
             </div>

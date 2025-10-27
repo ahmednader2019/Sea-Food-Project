@@ -3627,6 +3627,28 @@ body {
   direction: rtl;
 }
 
+/* RTL Search Input and Button */
+[dir="rtl"] .search-input {
+  text-align: right;
+  direction: rtl;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+[dir="rtl"] .search-input::placeholder {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .search-btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
 [dir="rtl"] .stat-card:first-child {
   border-right: none;
   border-left: 1.5px solid;
