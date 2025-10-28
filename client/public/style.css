@@ -1204,9 +1204,10 @@ body {
 /* Contact Form Section */
 .contact-form-section {
   position: relative;
-  margin-top: 100px;
   z-index: 10;
-  padding: 0 80px 80px;
+  padding: 80px;
+  padding-top: 100px;
+  background: linear-gradient(to bottom, #cacfd2, #a2c3da, #ffffff);
 }
 
 .contact-form-section .container-fluid {
@@ -1220,7 +1221,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   height: auto;
   object-fit: contain;
   z-index: 0;
@@ -1231,10 +1232,10 @@ body {
 
 .contact-form-card {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.068);
   backdrop-filter: blur(10px);
   border-radius: 32px;
-  border: 2px solid rgba(32, 110, 165, 0.3);
+  border: 2px solid rgba(32, 110, 165, 0.281);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 48px 40px;
   max-width: 731px;
@@ -1401,13 +1402,8 @@ body {
     font-size: 36px;
   }
 
-  .contact-form-section {
-    padding: 0 40px 60px;
-    margin-top: 100px;
-  }
-
   .form-background-image {
-    max-width: 700px;
+    max-width: 900px;
   }
 
   .contact-form-card {
@@ -1442,10 +1438,6 @@ body {
     font-size: 28px;
   }
 
-  .contact-form-section {
-    padding: 0 20px 40px;
-    margin-top: 0px;
-  }
 
   .form-background-image {
     max-width: 500px;
@@ -1506,12 +1498,9 @@ body {
     font-size: 24px;
   }
 
-  .contact-form-section {
-    margin-top: 0px;
-  }
 
   .form-background-image {
-    max-width: 350px;
+    max-width: 700px;
   }
 
   .contact-info-title {
@@ -1529,10 +1518,7 @@ body {
     font-size: 32px;
   }
   
-  .contact-form-section {
-    padding: 0 40px 60px;
-    margin-top: 0px;
-  }
+
   
   .contact-info-section {
     padding: 60px 0;
@@ -1552,11 +1538,6 @@ body {
   
   .contact-hero-title {
     font-size: 28px;
-  }
-  
-  .contact-form-section {
-    padding: 0 20px 40px;
-    margin-top: 0px;
   }
   
   .contact-form-card {
@@ -1601,9 +1582,6 @@ body {
     font-size: 24px;
   }
   
-  .contact-form-section {
-    margin-top: 0px;
-  }
   
   .form-input-custom {
     font-size: 16px;
