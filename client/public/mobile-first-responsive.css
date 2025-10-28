@@ -1,0 +1,594 @@
+/* ========================================
+   MOBILE-FIRST RESPONSIVE OVERRIDES
+   Base: Mobile (320px+)
+   Breakpoints: Tablet (768px+), Desktop (1024px+)
+   ======================================== */
+
+/* Reset responsive base - Mobile First */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ========================================
+   HERO SECTIONS - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default (320px+) */
+.hero-section,
+.services-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25vh 5vw 8vh;
+  margin-top: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content,
+.services-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 4vw;
+}
+
+.hero-title,
+.services-hero-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.25rem, 6vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.875rem, 3.5vw, 1.25rem);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+  .hero-section,
+  .services-hero-section {
+    min-height: 60vh;
+    padding: 20vh 6vw 10vh;
+  }
+
+  .hero-content,
+  .services-hero-content {
+    max-width: 90%;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .hero-section,
+  .services-hero-section {
+    min-height: 675px;
+    padding: 15vh 5rem 8rem;
+  }
+
+  .hero-content {
+    max-width: 803px;
+    text-align: left;
+    margin-left: 5rem;
+  }
+
+  .services-hero-content {
+    max-width: 1280px;
+    text-align: center;
+  }
+
+  .hero-title,
+  .services-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+  }
+}
+
+/* ========================================
+   SEARCH BAR - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 10;
+  padding: 0 5vw;
+}
+
+.search-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: white;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.875rem, 4vw, 1.25rem);
+  font-weight: 500;
+  color: #838383;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.search-btn {
+  min-width: 5rem;
+  padding: 0.875rem 1rem;
+  background: linear-gradient(to bottom, #206ea5, #0c2a3f);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: white;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
+  font-weight: 700;
+}
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+  .search-container {
+    margin-top: 3rem;
+  }
+
+  .search-wrapper {
+    max-width: 898px;
+  }
+
+  .search-btn {
+    min-width: 8rem;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .search-container {
+    margin-top: -2.5rem;
+  }
+}
+
+/* ========================================
+   PRODUCTS GRID - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default (2 columns) */
+.products-section {
+  padding: 2rem 0 4rem;
+}
+
+.products-section .container-fluid {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.products-section .row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.75rem, 3vw, 1.5rem);
+  margin: 0;
+}
+
+.product-col {
+  width: 100%;
+  padding: 0;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:active {
+  transform: scale(0.98);
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.product-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  text-transform: capitalize;
+  padding: clamp(0.5rem, 3vw, 1rem);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tablet: 768px+ (3 columns) */
+@media (min-width: 768px) {
+  .products-section .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Desktop: 1024px+ (4 columns) */
+@media (min-width: 1024px) {
+  .products-section {
+    padding: 3rem 0 6rem;
+  }
+
+  .products-section .row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Large Desktop: 1440px+ (5 columns) */
+@media (min-width: 1440px) {
+  .products-section .row {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* ========================================
+   SERVICES CARDS - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default */
+.service-cards-section {
+  position: relative;
+  margin-top: 2rem;
+  z-index: 10;
+  padding: 0 5vw 3rem;
+}
+
+.services-page-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.15);
+  padding: clamp(1.25rem, 5vw, 2rem);
+  margin-bottom: 1rem;
+  min-height: auto;
+  transition: transform 0.3s;
+}
+
+.service-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.125rem, 4.5vw, 1.5rem);
+  font-weight: 700;
+  color: #0c2a3f;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.service-card-description {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+  .service-cards-section {
+    margin-top: -5rem;
+    padding: 0 2rem 4rem;
+  }
+
+  .services-page-card {
+    min-height: 240px;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .service-cards-section {
+    margin-top: -9rem;
+    padding: 0 5rem 6rem;
+  }
+
+  .services-page-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ========================================
+   CONTACT FORM - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default */
+.home-contact-form {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5vw;
+}
+
+.home-contact-form .form-group {
+  margin-bottom: clamp(1.25rem, 5vw, 3rem);
+}
+
+.home-contact-form .form-control {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #838383;
+  border-radius: 0;
+  padding: clamp(0.75rem, 3vw, 1rem) 0.5rem;
+  font-size: clamp(0.9375rem, 4vw, 1.25rem);
+  font-weight: 500;
+  color: #838383;
+  background: transparent;
+  transition: border-color 0.3s;
+  min-height: 2.75rem;
+}
+
+.home-contact-form textarea.form-control {
+  min-height: 6rem;
+  resize: vertical;
+  padding-top: 0.75rem;
+}
+
+.home-contact-form .form-control:focus {
+  outline: none;
+  border-bottom-color: #206ea5;
+  color: #1e1e1e;
+}
+
+.home-contact-btn {
+  background: linear-gradient(90deg, #206ea5 0%, #0c2a3f 100%);
+  color: white;
+  padding: clamp(0.875rem, 3.5vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+  border-radius: clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(0.9375rem, 4vw, 1.125rem);
+  font-weight: 700;
+  text-transform: capitalize;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 3rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.home-contact-btn:active {
+  transform: scale(0.98);
+}
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+  .home-contact-form {
+    max-width: 731px;
+    padding: 0 2rem;
+  }
+
+  .home-contact-btn {
+    width: auto;
+    min-width: 12rem;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .home-contact-form {
+    padding: 0;
+  }
+
+  .home-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ========================================
+   FILTER BUTTONS - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default */
+.filter-section {
+  margin: 2rem 0;
+  padding: 0 2vw;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.filter-btn {
+  background-color: #ffffff;
+  border: 1px solid #206ea5;
+  color: #206ea5;
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.25rem);
+  border-radius: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.75rem, 3vw, 0.9375rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 2.75rem;
+  white-space: nowrap;
+}
+
+.filter-btn.active {
+  background-color: #206ea5;
+  color: #ffffff;
+}
+
+.filter-btn:active {
+  transform: scale(0.95);
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .filter-section {
+    margin: 4rem 0;
+  }
+
+  .filter-btn:hover {
+    background-color: #206ea5;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+}
+
+/* ========================================
+   CONTAINER FIXES - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: Default */
+.container-fluid {
+  width: 100%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  margin: 0 auto;
+}
+
+.container-fluid.px-5 {
+  padding-left: 4vw !important;
+  padding-right: 4vw !important;
+}
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .container-fluid.px-5 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .container-fluid.px-5 {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+  }
+}
+
+/* ========================================
+   SAFE AREA SUPPORT (Notched Devices)
+   ======================================== */
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* ========================================
+   LANDSCAPE MODE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section,
+  .services-hero-section {
+    min-height: 90vh;
+    padding: 15vh 5vw 5vh;
+  }
+
+  .hero-title,
+  .services-hero-title {
+    font-size: clamp(1.125rem, 5vw, 1.75rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-description {
+    font-size: clamp(0.8125rem, 3vw, 1rem);
+    margin-bottom: 1rem;
+  }
+
+  .search-container {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ========================================
+   PRINT & ACCESSIBILITY
+   ======================================== */
+
+/* Ensure touch targets are at least 44x44px */
+@media (max-width: 768px) {
+  button,
+  a,
+  input[type="submit"],
+  .btn,
+  .filter-btn,
+  .search-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Improve text readability */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+}
