@@ -66,29 +66,8 @@
     font-size: 0.875rem !important;
   }
 
-  /* Products grid - mobile */
-  .products-section {
-    padding: 2rem 0 3rem !important;
-  }
-
-  .products-section .container-fluid {
-    padding-left: 3vw !important;
-    padding-right: 3vw !important;
-  }
-
-  .products-section .row {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
-    margin: 0 !important;
-  }
-
-  .product-col {
-    width: 100% !important;
-    flex: none !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
+  /* Products grid - now handled by mobile-first-responsive.css with auto-fit */
+  /* Removed fixed breakpoints - using fluid grid instead */
 
   .product-card {
     height: 100% !important;
@@ -226,9 +205,7 @@
 
 /* Large mobile (576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
-  .products-section .row {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
+  /* Product grid now handled by mobile-first-responsive.css */
 
   .hero-section,
   .services-hero-section {
@@ -262,10 +239,7 @@
 
 /* Tablet styles (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .products-section .row {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.25rem !important;
-  }
+  /* Product grid now handled by mobile-first-responsive.css */
 
   .hero-section,
   .services-hero-section {
@@ -280,9 +254,7 @@
 
 /* Desktop styles (1024px+) */
 @media (min-width: 1024px) {
-  .products-section .row {
-    grid-template-columns: repeat(4, 1fr) !important;
-  }
+  /* Product grid now handled by mobile-first-responsive.css */
 
   .service-cards-section {
     margin-top: -8rem !important;
@@ -291,9 +263,7 @@
 
 /* Large desktop (1440px+) */
 @media (min-width: 1440px) {
-  .products-section .row {
-    grid-template-columns: repeat(5, 1fr) !important;
-  }
+  /* Product grid now handled by mobile-first-responsive.css */
 }
 
 /* Touch device optimization */

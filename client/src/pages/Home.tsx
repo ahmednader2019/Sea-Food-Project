@@ -52,10 +52,10 @@ export default function Home() {
           // Shuffle immediately when coming into view
           setShuffledImages(shuffleArray(images));
 
-          // Start continuous shuffling every 1 second
+          // Start continuous shuffling every 2 seconds
           intervalId = setInterval(() => {
             setShuffledImages(shuffleArray(images));
-          }, 1000); // Change images every 1 second
+          }, 2000); // Change images every 2 seconds
         } else {
           // Stop shuffling when out of view
           if (intervalId) {

@@ -188,19 +188,21 @@ body {
    PRODUCTS GRID - MOBILE FIRST
    ======================================== */
 
-/* Mobile: Default (2 columns) */
+/* Mobile-first: Fluid responsive product grid */
 .products-section {
-  padding: 2rem 0 4rem;
+  padding: clamp(2rem, 5vh, 4rem) 0;
 }
 
 .products-section .container-fluid {
-  padding-left: 4vw;
-  padding-right: 4vw;
+  padding-left: clamp(15px, 4vw, 40px);
+  padding-right: clamp(15px, 4vw, 40px);
 }
 
 .products-section .row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* Auto-fit: automatically adjusts columns based on available space */
+  /* min(160px, 100%): cards can't be smaller than 160px but can be 100% width on tiny screens */
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
   gap: clamp(0.75rem, 3vw, 1.5rem);
   margin: 0;
 }
@@ -222,8 +224,19 @@ body {
   flex-direction: column;
 }
 
-.product-card:active {
-  transform: scale(0.98);
+/* Touch devices - use active state instead of hover */
+@media (hover: none) and (pointer: coarse) {
+  .product-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .product-img {
@@ -248,38 +261,27 @@ body {
   justify-content: center;
 }
 
-/* Tablet: 768px+ (3 columns) */
+/* Fine-tune for larger screens */
 @media (min-width: 768px) {
-  .products-section .row {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .product-img {
     aspect-ratio: 4 / 3;
   }
+
+  .products-section .row {
+    /* On tablets and up, ensure minimum card size is slightly larger */
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  }
 }
 
-/* Desktop: 1024px+ (4 columns) */
 @media (min-width: 1024px) {
   .products-section {
     padding: 3rem 0 6rem;
   }
 
   .products-section .row {
-    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-  }
-
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* Large Desktop: 1440px+ (5 columns) */
-@media (min-width: 1440px) {
-  .products-section .row {
-    grid-template-columns: repeat(5, 1fr);
+    /* On desktop, ensure cards don't get too large */
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   }
 }
 
