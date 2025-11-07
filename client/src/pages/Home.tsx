@@ -189,25 +189,43 @@ export default function Home() {
                   <span>{t('home.categories.hamour')}</span>
                 </div>
                 <div className="category-item">
-                  <span>{t('home.categories.lobsters')}</span>
+                  <span>{t('home.categories.shaour')}</span>
                 </div>
                 <div className="category-item">
-                  <span>{t('home.categories.shrimps')}</span>
+                  <span>{t('home.categories.lobster')}</span>
+                </div>
+                <div className="category-item">
+                  <span>{t('home.categories.oyster')}</span>
                 </div>
                 <div className="category-item">
                   <span>{t('home.categories.crab')}</span>
                 </div>
                 <div className="category-item">
-                  <span>{t('home.categories.frozenSeafoodMix')}</span>
+                  <span>{t('home.categories.najil')}</span>
                 </div>
                 <div className="category-item">
-                  <span>{t('home.categories.calamari')}</span>
+                  <span>{t('home.categories.shrimps')}</span>
+                </div>
+                <div className="category-item">
+                  <span>{t('home.categories.squid')}</span>
                 </div>
                 <div className="category-item">
                   <span>{t('home.categories.salmon')}</span>
                 </div>
                 <div className="category-item">
+                  <span>{t('home.categories.seaBream')}</span>
+                </div>
+                <div className="category-item">
+                  <span>{t('home.categories.seaBass')}</span>
+                </div>
+                <div className="category-item">
                   <span>{t('home.categories.smokedProducts')}</span>
+                </div>
+                <div className="category-item">
+                  <span>{t('home.categories.frozenSeafoodMix')}</span>
+                </div>
+                <div className="category-item">
+                  <span>{t('home.categories.frozenFish')}</span>
                 </div>
               </div>
             </div>
@@ -305,8 +323,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <Footer 
-        logoImage="/assets/19-362.webp"
+      <Footer
+        logoImage="/assets/19-227.webp"
         logoText="الخلجان العربية"
         copyrightIcon="/assets/19-366.svg"
       />

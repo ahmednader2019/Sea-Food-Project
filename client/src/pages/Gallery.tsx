@@ -153,7 +153,7 @@ export default function Gallery() {
 
       {/* Footer */}
             <Footer
-                    logoImage="/assets/29-93.webp"
+                    logoImage="/assets/19-227.webp"
                     logoText="الخلجان العربية"
                     copyrightIcon="/assets/29-97.svg"
             />

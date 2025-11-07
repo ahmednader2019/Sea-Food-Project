@@ -375,7 +375,7 @@ body {
 .footer-description {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 800;
   color: #ffffff;
   line-height: 1.6;
   margin-bottom: 30px;
@@ -410,7 +410,7 @@ body {
 .footer-heading {
   font-family: 'Nunito', sans-serif;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 900;
   color: #ffffff;
   margin-bottom: 30px;
 }
@@ -428,7 +428,7 @@ body {
 .footer-links a {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 800;
   color: #ffffff;
   text-decoration: none;
   text-transform: capitalize;
@@ -480,7 +480,7 @@ body {
 .footer-copyright span {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 800;
   color: #ffffff;
 }
 
@@ -2420,7 +2420,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(12, 42, 63, 0.7) 0%, rgba(12, 42, 63, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(12, 42, 63, 0.4) 0%, rgba(12, 42, 63, 0.5) 100%);
   z-index: 1;
 }
 
@@ -2984,8 +2984,8 @@ body {
 
 .footer-description {
   font-size: 17px;
-  font-weight: 400;
-  color: #e8eef2;
+  font-weight: 800;
+  color: #ffffff;
   line-height: 1.7;
   margin-bottom: 30px;
   max-width: 500px;
@@ -3024,7 +3024,7 @@ body {
 
 .footer-heading {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 900;
   color: #ffffff;
   margin-bottom: 25px;
   font-family: 'Nunito', sans-serif;
@@ -3042,8 +3042,8 @@ body {
 
 .footer-links a {
   font-size: 17px;
-  font-weight: 400;
-  color: #e8eef2;
+  font-weight: 800;
+  color: #ffffff;
   text-decoration: none;
   text-transform: capitalize;
   transition: color 0.3s ease;
@@ -3061,15 +3061,15 @@ body {
 
 .footer-contact-label {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 900;
   margin-bottom: 8px;
   margin-top: 18px;
-  color: #e8eef2;
+  color: #ffffff;
 }
 
 .footer-contact-value {
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 800;
   margin-bottom: 15px;
   color: #ffffff;
 }
@@ -3078,6 +3078,7 @@ body {
   color: #ffffff;
   text-decoration: none;
   transition: all 0.3s ease;
+  font-weight: 800;
 }
 
 .contact-link:hover {

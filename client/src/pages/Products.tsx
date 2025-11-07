@@ -18,18 +18,14 @@ const allProducts = [
   { img: '150-101.webp', name: 'Rabbitfish', category: 'freshFish' },
   { img: '150-106.webp', name: 'Indian Mackerel', category: 'frozenFish' },
   { img: '150-111.webp', name: 'Emperor Fish', category: 'freshFish' },
-  { img: '150-116.webp', name: 'Grouper', category: 'freshFish' },
   { img: '150-121.webp', name: 'Sardine', category: 'frozenFish' },
   { img: '150-126.webp', name: 'Sole Fish', category: 'freshFish' },
-  { img: '150-131.webp', name: 'Emperor Fish', category: 'freshFish' },
   { img: '150-136.webp', name: 'European Sea Bass', category: 'imported' },
   { img: '150-141.webp', name: 'Small Shrimp', category: 'shellfish' },
   { img: '150-146.webp', name: 'Sea Bass', category: 'freshFish' },
   { img: '150-221.webp', name: 'Threadfin Bream', category: 'freshFish' },
   { img: '150-223.webp', name: 'Crab', category: 'shellfish' },
-  { img: '150-228.webp', name: 'Coral Trout', category: 'freshFish' },
-  { img: '150-235.webp', name: 'Arabian Grouper', category: 'freshFish' },
-  { img: '150-233.webp', name: 'Coral Trout (Soft Flesh)', category: 'freshFish' }
+  { img: '150-228.webp', name: 'Coral Trout', category: 'freshFish' }
 ];
 
 export default function Products() {
@@ -154,7 +150,7 @@ export default function Products() {
 
       {/* Footer */}
       <Footer
-        logoImage="/assets/63-82.webp"
+        logoImage="/assets/19-227.webp"
         logoText="الخلجان العربية"
         copyrightIcon="/assets/63-86.svg"
       />

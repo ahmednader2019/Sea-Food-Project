@@ -109,7 +109,7 @@ export default function Services() {
 
       {/* Footer */}
       <Footer
-        logoImage="/assets/63-82.webp"
+        logoImage="/assets/19-227.webp"
         logoText="الخلجان العربية"
         copyrightIcon="/assets/63-86.svg"
       />

@@ -183,6 +183,13 @@ export default function ContactUs() {
               </div>
 
               <div className="contact-info-block">
+                <h3 className="contact-info-label">{t('contact.info.branches')}</h3>
+                <p className="contact-info-value">{t('contact.info.abha')} {t('contact.info.abhaPhone')}</p>
+                <p className="contact-info-value">{t('contact.info.jazan')} {t('contact.info.jazanPhone')}</p>
+                <p className="contact-info-value">{t('contact.info.general')} {t('contact.info.generalPhone')}</p>
+              </div>
+
+              <div className="contact-info-block">
                 <h3 className="contact-info-label">{t('contact.info.owner')}</h3>
                 <p className="contact-info-value">{t('contact.info.ownerName')}</p>
                 <p className="contact-info-value">{t('contact.info.ownerPhone')}</p>
@@ -207,7 +214,7 @@ export default function ContactUs() {
 
       {/* Footer */}
       <Footer
-        logoImage="/assets/39-106.webp"
+        logoImage="/assets/19-227.webp"
         logoText="الخلجان العربية"
         copyrightIcon="/assets/39-110.svg"
       />
