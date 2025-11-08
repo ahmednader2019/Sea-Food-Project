@@ -2632,7 +2632,7 @@ body {
 .product-grid-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1.9;
   object-fit: cover;
   border-radius: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease-in-out;
@@ -3339,7 +3339,7 @@ body {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  height: 244px;
+  height: 450px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
