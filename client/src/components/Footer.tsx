@@ -62,7 +62,10 @@ export default function Footer({ logoImage, logoText, copyrightIcon }: FooterPro
 
               <p className="footer-contact-label">{t('nav.contact')}:</p>
               <p className="footer-contact-value">
-                <a href="tel:+966599754996" className="contact-link">{t('footer.phone')}</a>
+                <a href="https://wa.me/966599754996" target="_blank" rel="noopener noreferrer" className="contact-link d-inline-flex align-items-center gap-2">
+                  <i className="fab fa-whatsapp"></i>
+                  <span>{t('footer.phone')}</span>
+                </a>
               </p>
 
               <p className="footer-contact-label">{t('contact.info.email')}</p>

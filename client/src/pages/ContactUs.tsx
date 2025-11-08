@@ -171,7 +171,7 @@ export default function ContactUs() {
 
               <div className="contact-info-block">
                 <h3 className="contact-info-label">{t('contact.info.contactUs')}</h3>
-                <a href="https://wa.me/966599754996" target="_blank" rel="noopener noreferrer" className="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="https://wa.me/966599754996" target="_blank" rel="noopener noreferrer" className="d-flex align-items-center gap-2 text-decoration-none contact-link">
                   <i className="fab fa-whatsapp contact-whatsapp-icon"></i>
                   <p className="contact-info-value mb-0">{t('contact.info.phone')}</p>
                 </a>
@@ -184,28 +184,38 @@ export default function ContactUs() {
 
               <div className="contact-info-block">
                 <h3 className="contact-info-label">{t('contact.info.branches')}</h3>
-                <p className="contact-info-value">{t('contact.info.abha')} {t('contact.info.abhaPhone')}</p>
-                <p className="contact-info-value">{t('contact.info.jazan')} {t('contact.info.jazanPhone')}</p>
-                <p className="contact-info-value">{t('contact.info.general')} {t('contact.info.generalPhone')}</p>
+                <p className="contact-info-value">
+                  {t('contact.info.abha')} <a href="https://wa.me/966567677369" target="_blank" rel="noopener noreferrer" className="contact-link d-inline-flex align-items-center gap-2"><i className="fab fa-whatsapp"></i><span>{t('contact.info.abhaPhone')}</span></a>
+                </p>
+                <p className="contact-info-value">
+                  {t('contact.info.jazan')} <a href="https://wa.me/966570819099" target="_blank" rel="noopener noreferrer" className="contact-link d-inline-flex align-items-center gap-2"><i className="fab fa-whatsapp"></i><span>{t('contact.info.jazanPhone')}</span></a>
+                </p>
+                <p className="contact-info-value">
+                  {t('contact.info.general')} <a href="https://wa.me/966599754996" target="_blank" rel="noopener noreferrer" className="contact-link d-inline-flex align-items-center gap-2"><i className="fab fa-whatsapp"></i><span>{t('contact.info.generalPhone')}</span></a>
+                </p>
               </div>
 
               <div className="contact-info-block">
                 <h3 className="contact-info-label">{t('contact.info.owner')}</h3>
                 <p className="contact-info-value">{t('contact.info.ownerName')}</p>
-                <p className="contact-info-value">{t('contact.info.ownerPhone')}</p>
+                <p className="contact-info-value">
+                  <a href="https://wa.me/966536092876" target="_blank" rel="noopener noreferrer" className="contact-link d-inline-flex align-items-center gap-2"><i className="fab fa-whatsapp"></i><span>{t('contact.info.ownerPhone')}</span></a>
+                </p>
               </div>
 
               <div className="contact-info-block">
                 <h3 className="contact-info-label">{t('contact.info.ceo')}</h3>
                 <p className="contact-info-value">{t('contact.info.ceoName')}</p>
-                <p className="contact-info-value">{t('contact.info.ceoPhone')}</p>
+                <p className="contact-info-value">
+                  <a href="https://wa.me/966599754996" target="_blank" rel="noopener noreferrer" className="contact-link d-inline-flex align-items-center gap-2"><i className="fab fa-whatsapp"></i><span>{t('contact.info.ceoPhone')}</span></a>
+                </p>
               </div>
             </div>
 
             {/* Right - Map */}
             <div className="col-lg-6 scroll-animate delay-200 contact-info-fallback">
               <div className="contact-map-container">
-                <img src="/assets/39-161.webp" alt="Location Map" className="contact-map-image" />
+                <img src="/assets/map.png" alt="Location Map" className="contact-map-image" />
               </div>
             </div>
           </div>

@@ -349,7 +349,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #4a91e200 0%, #0c2a3f 100%);
+  background: linear-gradient(180deg, rgba(12, 42, 63, 0.4) 0%, rgba(12, 42, 63, 0.65) 100%);
   opacity: 1;
   z-index: 1;
 }
@@ -1402,7 +1402,7 @@ body {
 }
 
 .contact-info-value {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif !important;
   font-size: 18px;
   font-weight: 400;
   color: #206ea5;
@@ -3074,16 +3074,33 @@ body {
   color: #ffffff;
 }
 
+.footer-contact-value span {
+  unicode-bidi: plaintext;
+  display: inline-block;
+}
+
 .contact-link {
-  color: #ffffff;
+  color: #89CFF0;
   text-decoration: none;
   transition: all 0.3s ease;
   font-weight: 800;
 }
 
+.contact-link span {
+  font-variant-numeric: lining-nums;
+  font-family: 'Nunito', sans-serif !important;
+  unicode-bidi: plaintext;
+  display: inline-block;
+}
+
 .contact-link:hover {
-  color: #ffffff;
+  color: #5eb8e0;
   text-decoration: underline;
+}
+
+.contact-link .fa-whatsapp {
+  color: #25D366;
+  font-size: 20px;
 }
 
 .footer-copyright {
