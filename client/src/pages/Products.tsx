@@ -3,29 +3,29 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { useTranslation } from '../hooks/useTranslation';
 
-// Product data with categories
+// Product data with categories (using translation keys)
 const allProducts = [
-  { img: '150-37.webp', name: 'Longtail Tuna', category: 'freshFish' },
-  { img: '150-47.webp', name: 'Tilapia', category: 'freshFish' },
-  { img: '150-52.webp', name: 'Barracuda', category: 'freshFish' },
-  { img: '150-57.webp', name: 'Mullet', category: 'freshFish' },
-  { img: '150-62.webp', name: 'Shrimp', category: 'shellfish' },
-  { img: '150-67.webp', name: 'Parrotfish', category: 'freshFish' },
-  { img: '150-75.webp', name: 'Spanish Mackerel', category: 'frozenFish' },
-  { img: '150-86.webp', name: 'Salmon', category: 'imported' },
-  { img: '150-91.webp', name: 'Gilt-Head Bream', category: 'freshFish' },
-  { img: '150-96.webp', name: 'Red Snapper', category: 'freshFish' },
-  { img: '150-101.webp', name: 'Rabbitfish', category: 'freshFish' },
-  { img: '150-106.webp', name: 'Indian Mackerel', category: 'frozenFish' },
-  { img: '150-111.webp', name: 'Emperor Fish', category: 'freshFish' },
-  { img: '150-121.webp', name: 'Sardine', category: 'frozenFish' },
-  { img: '150-126.webp', name: 'Sole Fish', category: 'freshFish' },
-  { img: '150-136.webp', name: 'European Sea Bass', category: 'imported' },
-  { img: '150-141.webp', name: 'Small Shrimp', category: 'shellfish' },
-  { img: '150-146.webp', name: 'Sea Bass', category: 'freshFish' },
-  { img: '150-221.webp', name: 'Threadfin Bream', category: 'freshFish' },
-  { img: '150-223.webp', name: 'Crab', category: 'shellfish' },
-  { img: '150-228.webp', name: 'Coral Trout', category: 'freshFish' }
+  { img: '150-37.webp', nameKey: 'longtailTuna', category: 'freshFish' },
+  { img: '150-47.webp', nameKey: 'tilapia', category: 'freshFish' },
+  { img: '150-52.webp', nameKey: 'barracuda', category: 'freshFish' },
+  { img: '150-57.webp', nameKey: 'mullet', category: 'freshFish' },
+  { img: '150-62.webp', nameKey: 'shrimp', category: 'shellfish' },
+  { img: '150-67.webp', nameKey: 'parrotfish', category: 'freshFish' },
+  { img: '150-75.webp', nameKey: 'spanishMackerel', category: 'frozenFish' },
+  { img: '150-86.webp', nameKey: 'salmon', category: 'imported' },
+  { img: '150-91.webp', nameKey: 'giltHeadBream', category: 'freshFish' },
+  { img: '150-96.webp', nameKey: 'redSnapper', category: 'freshFish' },
+  { img: '150-101.webp', nameKey: 'rabbitfish', category: 'freshFish' },
+  { img: '150-106.webp', nameKey: 'indianMackerel', category: 'frozenFish' },
+  { img: '150-111.webp', nameKey: 'emperorFish', category: 'freshFish' },
+  { img: '150-121.webp', nameKey: 'sardine', category: 'frozenFish' },
+  { img: '150-126.webp', nameKey: 'soleFish', category: 'freshFish' },
+  { img: '150-136.webp', nameKey: 'europeanSeaBass', category: 'imported' },
+  { img: '150-141.webp', nameKey: 'smallShrimp', category: 'shellfish' },
+  { img: '150-146.webp', nameKey: 'seaBass', category: 'freshFish' },
+  { img: '150-221.webp', nameKey: 'threadfinBream', category: 'freshFish' },
+  { img: '150-223.webp', nameKey: 'crab', category: 'shellfish' },
+  { img: '150-228.webp', nameKey: 'coralTrout', category: 'freshFish' }
 ];
 
 export default function Products() {
@@ -39,12 +39,13 @@ export default function Products() {
       // Filter by category
       const matchesCategory = selectedFilter === 'all' || product.category === selectedFilter;
 
-      // Filter by search term
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      // Filter by search term (search in translated product name)
+      const productName = t(`products.items.${product.nameKey}`);
+      const matchesSearch = productName.toLowerCase().includes(searchTerm.toLowerCase());
 
       return matchesCategory && matchesSearch;
     });
-  }, [searchTerm, selectedFilter]);
+  }, [searchTerm, selectedFilter, t]);
 
   const handleSearch = () => {
     // The filtering is already done by the useMemo hook
@@ -134,8 +135,8 @@ export default function Products() {
               filteredProducts.map((product, index) => (
                 <div key={index} className="col-lg col-md-3 col-sm-4 col-6 product-col">
                   <div className="product-card">
-                    <img src={`/assets/${product.img}`} alt={product.name} className="product-img" />
-                    <div className="product-name">{product.name}</div>
+                    <img src={`/assets/${product.img}`} alt={t(`products.items.${product.nameKey}`)} className="product-img" />
+                    <div className="product-name">{t(`products.items.${product.nameKey}`)}</div>
                   </div>
                 </div>
               ))

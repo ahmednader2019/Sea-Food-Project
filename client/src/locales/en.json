@@ -149,6 +149,29 @@
       "frozenFish": "Frozen Fish",
       "shellfish": "Shellfish",
       "imported": "Imported"
+    },
+    "items": {
+      "longtailTuna": "Longtail Tuna",
+      "tilapia": "Tilapia",
+      "barracuda": "Barracuda",
+      "mullet": "Mullet",
+      "shrimp": "Shrimp",
+      "parrotfish": "Parrotfish",
+      "spanishMackerel": "Spanish Mackerel",
+      "salmon": "Salmon",
+      "giltHeadBream": "Gilt-Head Bream",
+      "redSnapper": "Red Snapper",
+      "rabbitfish": "Rabbitfish",
+      "indianMackerel": "Indian Mackerel",
+      "emperorFish": "Emperor Fish",
+      "sardine": "Sardine",
+      "soleFish": "Sole Fish",
+      "europeanSeaBass": "European Sea Bass",
+      "smallShrimp": "Small Shrimp",
+      "seaBass": "Sea Bass",
+      "threadfinBream": "Threadfin Bream",
+      "crab": "Crab",
+      "coralTrout": "Coral Trout"
     }
   },
   "gallery": {
