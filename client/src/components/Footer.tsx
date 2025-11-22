@@ -70,7 +70,7 @@ export default function Footer({ logoImage, logoText, copyrightIcon }: FooterPro
 
               <p className="footer-contact-label">{t('contact.info.email')}</p>
               <p className="footer-contact-value">
-                <a href="mailto:Ahmed@arabian-gulfs.com" className="contact-link">{t('footer.email')}</a>
+                <a href="mailto:Management@arabian-gulfs.com" className="contact-link">{t('footer.email')}</a>
               </p>
             </div>
           </div>
