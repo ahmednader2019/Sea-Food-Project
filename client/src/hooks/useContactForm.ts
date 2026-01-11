@@ -90,14 +90,26 @@ export function useContactForm() {
         body: JSON.stringify(formData),
       });
 
+      // Log response details for debugging
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+
       if (!response.ok) {
-        let errorMessage = 'Failed to send message';
+        let errorMessage = 'Failed to send message. Please try again later.';
         try {
           const result = await response.json();
-          errorMessage = result.error || errorMessage;
-        } catch {
-          // Response is not JSON
-          errorMessage = 'Server error occurred';
+          console.error('Error response:', result);
+          // Use the error message from the server if available
+          errorMessage = result.error || result.message || errorMessage;
+        } catch (parseError) {
+          // Response is not JSON, try to get text
+          try {
+            const text = await response.text();
+            console.error('Non-JSON error response:', text);
+            errorMessage = text || `Server error (${response.status})`;
+          } catch {
+            errorMessage = `Server error occurred (Status: ${response.status})`;
+          }
         }
         throw new Error(errorMessage);
       }
@@ -113,8 +125,12 @@ export function useContactForm() {
     } catch (error) {
       console.error('Error submitting form:', error);
       // Set a general error message
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Failed to send message. Please try again later.';
+      
       setErrors({
-        message: error instanceof Error ? error.message : 'Failed to send message. Please try again.'
+        message: errorMessage
       });
     } finally {
       setIsSubmitting(false);

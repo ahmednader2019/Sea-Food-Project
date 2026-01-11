@@ -128,13 +128,26 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' })}
   } catch (error) {
     console.error('Error in contact function:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    
+    // Provide more specific error messages
+    let userFriendlyError = 'Failed to send message. Please try again later.';
+    
+    if (errorMessage.includes('Email configuration is missing')) {
+      userFriendlyError = 'Email service is not configured. Please contact the administrator.';
+    } else if (errorMessage.includes('Invalid login') || errorMessage.includes('authentication failed')) {
+      userFriendlyError = 'Email authentication failed. Please contact the administrator.';
+    } else if (errorMessage.includes('ECONNREFUSED') || errorMessage.includes('ENOTFOUND')) {
+      userFriendlyError = 'Cannot connect to email server. Please check your connection and try again.';
+    } else if (errorMessage.includes('ETIMEDOUT')) {
+      userFriendlyError = 'Connection timeout. Please try again later.';
+    }
 
     return {
       statusCode: 500,
       body: JSON.stringify({
         success: false,
-        error: 'Failed to send message. Please try again later.',
-        details: errorMessage,
+        error: userFriendlyError,
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined,
       }),
     };
   }
