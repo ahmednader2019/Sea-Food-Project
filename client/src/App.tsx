@@ -49,8 +49,14 @@ function App() {
     document.body.appendChild(customScript);
 
     return () => {
-      document.body.removeChild(bootstrapScript);
-      document.body.removeChild(customScript);
+      // Safely remove scripts only if they still exist and are children of body
+      // Using parentNode check prevents "node to be removed is not a child" errors
+      if (bootstrapScript && bootstrapScript.parentNode === document.body) {
+        bootstrapScript.remove();
+      }
+      if (customScript && customScript.parentNode === document.body) {
+        customScript.remove();
+      }
     };
   }, []);
 
