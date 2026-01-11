@@ -60,14 +60,66 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // Create transporter
+    // Create transporter with better error handling
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: emailUser,
         pass: emailPass,
       },
+      // Add connection timeout
+      connectionTimeout: 10000,
+      // Add socket timeout
+      socketTimeout: 10000,
     });
+
+    // Verify connection before sending (this will catch auth errors early)
+    try {
+      await transporter.verify();
+      console.log('Email transporter verified successfully');
+    } catch (verifyError) {
+      console.error('Email transporter verification failed:', verifyError);
+      const verifyErrorMessage = verifyError instanceof Error ? verifyError.message : 'Unknown verification error';
+      
+      // Provide specific error messages based on verification failure
+      if (verifyErrorMessage.includes('Invalid login') || verifyErrorMessage.includes('535')) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({
+            success: false,
+            error: 'Email authentication failed. Please verify your Gmail App Password is correct and not expired.',
+            details: 'Invalid credentials or expired app password',
+          }),
+        };
+      } else if (verifyErrorMessage.includes('EAUTH')) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({
+            success: false,
+            error: 'Email authentication failed. Please check your Gmail App Password settings.',
+            details: 'Authentication error - verify 2FA is enabled and app password is valid',
+          }),
+        };
+      } else if (verifyErrorMessage.includes('ECONNREFUSED') || verifyErrorMessage.includes('ENOTFOUND')) {
+        return {
+          statusCode: 503,
+          body: JSON.stringify({
+            success: false,
+            error: 'Cannot connect to Gmail servers. Please try again later.',
+            details: 'Network connection error',
+          }),
+        };
+      } else {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({
+            success: false,
+            error: 'Email service verification failed. Please contact the administrator.',
+            details: process.env.NODE_ENV === 'development' ? verifyErrorMessage : undefined,
+          }),
+        };
+      }
+    }
 
     // Email content
     const mailOptions = {
@@ -127,27 +179,55 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' })}
     };
   } catch (error) {
     console.error('Error in contact function:', error);
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    console.error('Error name:', error instanceof Error ? error.name : 'Unknown');
+    
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorCode = (error as any)?.code || '';
     
-    // Provide more specific error messages
+    // Log the full error object for debugging
+    console.error('Full error object:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
+    
+    // Provide more specific error messages based on error codes and messages
     let userFriendlyError = 'Failed to send message. Please try again later.';
+    let statusCode = 500;
     
-    if (errorMessage.includes('Email configuration is missing')) {
+    // Gmail-specific error codes
+    if (errorCode === 'EAUTH' || errorMessage.includes('EAUTH') || 
+        errorMessage.includes('Invalid login') || 
+        errorMessage.includes('535') ||
+        errorMessage.includes('authentication failed') ||
+        errorMessage.includes('Username and Password not accepted')) {
+      statusCode = 401;
+      userFriendlyError = 'Email authentication failed. Your Gmail App Password may have expired or been revoked. Please regenerate it in your Google Account settings.';
+    } else if (errorCode === 'ECONNREFUSED' || errorMessage.includes('ECONNREFUSED')) {
+      statusCode = 503;
+      userFriendlyError = 'Cannot connect to Gmail servers. Please check your internet connection and try again.';
+    } else if (errorCode === 'ENOTFOUND' || errorMessage.includes('ENOTFOUND')) {
+      statusCode = 503;
+      userFriendlyError = 'Gmail server not found. Please check your internet connection and try again.';
+    } else if (errorCode === 'ETIMEDOUT' || errorMessage.includes('ETIMEDOUT')) {
+      statusCode = 504;
+      userFriendlyError = 'Connection timeout. Gmail servers may be temporarily unavailable. Please try again later.';
+    } else if (errorMessage.includes('Email configuration is missing')) {
+      statusCode = 503;
       userFriendlyError = 'Email service is not configured. Please contact the administrator.';
-    } else if (errorMessage.includes('Invalid login') || errorMessage.includes('authentication failed')) {
-      userFriendlyError = 'Email authentication failed. Please contact the administrator.';
-    } else if (errorMessage.includes('ECONNREFUSED') || errorMessage.includes('ENOTFOUND')) {
-      userFriendlyError = 'Cannot connect to email server. Please check your connection and try again.';
-    } else if (errorMessage.includes('ETIMEDOUT')) {
-      userFriendlyError = 'Connection timeout. Please try again later.';
+    } else if (errorMessage.includes('Rate limit') || errorMessage.includes('quota')) {
+      statusCode = 429;
+      userFriendlyError = 'Email sending limit reached. Please try again later.';
     }
 
     return {
-      statusCode: 500,
+      statusCode,
       body: JSON.stringify({
         success: false,
         error: userFriendlyError,
-        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined,
+        // Include error code and details in development or for debugging
+        details: process.env.NODE_ENV === 'development' ? {
+          message: errorMessage,
+          code: errorCode,
+          name: error instanceof Error ? error.name : 'Unknown'
+        } : undefined,
       }),
     };
   }
