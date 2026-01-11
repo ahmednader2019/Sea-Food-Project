@@ -36,28 +36,31 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    // Load Bootstrap JS
-    const bootstrapScript = document.createElement('script');
-    bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
-    bootstrapScript.async = true;
-    document.body.appendChild(bootstrapScript);
+    // Check if scripts already exist to avoid duplicates
+    const bootstrapScriptId = 'bootstrap-bundle-script';
+    const customScriptId = 'custom-script';
+    
+    // Load Bootstrap JS only if it doesn't already exist
+    if (!document.getElementById(bootstrapScriptId)) {
+      const bootstrapScript = document.createElement('script');
+      bootstrapScript.id = bootstrapScriptId;
+      bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
+      bootstrapScript.async = true;
+      bootstrapScript.crossOrigin = 'anonymous';
+      document.body.appendChild(bootstrapScript);
+    }
 
-    // Load custom script
-    const customScript = document.createElement('script');
-    customScript.src = '/script.js';
-    customScript.async = true;
-    document.body.appendChild(customScript);
+    // Load custom script only if it doesn't already exist
+    if (!document.getElementById(customScriptId)) {
+      const customScript = document.createElement('script');
+      customScript.id = customScriptId;
+      customScript.src = '/script.js';
+      customScript.async = true;
+      document.body.appendChild(customScript);
+    }
 
-    return () => {
-      // Safely remove scripts only if they still exist and are children of body
-      // Using parentNode check prevents "node to be removed is not a child" errors
-      if (bootstrapScript && bootstrapScript.parentNode === document.body) {
-        bootstrapScript.remove();
-      }
-      if (customScript && customScript.parentNode === document.body) {
-        customScript.remove();
-      }
-    };
+    // No cleanup function - scripts should persist for the lifetime of the page
+    // Removing them can cause issues with React's reconciliation and libraries that depend on them
   }, []);
 
   return (
